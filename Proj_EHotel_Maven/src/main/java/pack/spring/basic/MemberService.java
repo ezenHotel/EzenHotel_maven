@@ -1,5 +1,6 @@
 package pack.spring.basic;
 
+import java.util.List;
 import java.util.Map;
 
 public interface MemberService {
@@ -8,4 +9,8 @@ public interface MemberService {
 	
 	Map<String, Object> detail(Map<String, Object> map);
 	
+	List<Map<String, Object>> list(Map<String, Object> map);
+	
+	String index( );
+
 }

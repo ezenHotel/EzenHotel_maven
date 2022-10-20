@@ -1,5 +1,6 @@
 package pack.spring.basic;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +44,25 @@ public class MemberController {
 		return mav;
 	}
 	// 상세보기 끝
+
+	// 전체 목록 보기 시작
+	@RequestMapping(value = "/list")
+	public ModelAndView list(@RequestParam Map<String, Object> map) {
+		List<Map<String, Object>> list = this.memberService.list(map);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("data", list);
+		mav.setViewName("/member/list");
+		return mav;
+	}
+	// 전체 목록 보기 끝
+
+	// 인덱스 페이지 시작
+	@RequestMapping(value = "/")
+	public ModelAndView index() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/index");
+		return mav;
+	}
+	// 인덱스 페이지 끝
 
 }
