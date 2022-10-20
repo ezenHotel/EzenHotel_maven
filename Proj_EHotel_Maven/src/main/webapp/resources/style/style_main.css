@@ -1,0 +1,166 @@
+@charset "UTF-8";
+@import url(/resources/style/style_Reset.css);
+
+
+/*////////////// div#wrap 시작 //////////////*/
+div#wrap {
+    width: 100%;
+    /* border: 1px solid #f80; */
+    margin: 2px auto;
+}
+
+#wrap>header{
+	height: 85px;
+	background-color: #f1e3c4;
+}
+
+#wrap>#main>#slideshowArea {
+	height: 640px;
+	background-color: #ccc;	
+	overflow: hidden; 
+}
+
+#wrap #slideshowArea>#slideFrame>a {
+	height: 640px;
+	overflow: hidden; 
+	position: absolute;
+}
+
+#wrap #slideshowArea>#slideFrame>a:not(:first-child) {
+	display: none;
+}
+
+#wrap>#main #reserve{
+	height: 100px;
+	background-color: #caac7d;
+	padding: 20px;
+	justify-content: center;
+	margin-bottom: 100px;
+}
+
+#wrap>#main #reserve div{
+	padding-right: 60px;
+	line-height: 30px;
+}
+#wrap>#main #reserve div.people{
+	text-align: center;
+}
+
+#wrap>#main #reserve div>h5{
+	font-size: 14px;
+	font-family: gothamB;
+	color:#fff;
+}
+#wrap>#main #reserve div>button#mainReserveBtn{
+	font-size: 18px;
+	font-family: gothamB;
+	width: 190px;
+	border: 2px solid #fff;
+	color:#fff;
+	padding: 0 30px;
+	cursor: pointer;
+	min-height: 60px;
+	background-color: #caac7d;
+}
+
+#wrap>#main #reserve div>button:hover{
+	background-color: #d0b88c;
+}
+
+#wrap>#main>#contTitle{
+	justify-content: center;
+	margin-bottom: 60px;
+}
+
+#wrap>#main>#contTitle>hr{
+	color:#caac7d;
+	border: 1px solid #caac7d;
+	
+}
+
+#wrap>#main>#contents{
+	height: 400px;
+	justify-content: center;
+	margin-bottom: 100px;
+}
+
+#wrap>#main>#contents>.cont{
+	padding-right: 30px;
+}
+
+#wrap>#main>#contents>.cont>img{
+	width: 360px;
+	height: 250px;
+	background-color: #000;
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+
+#wrap>#main>#contents>.cont>img:hover{
+	opacity: 70%;
+}
+
+#wrap>#main>#contents>.cont>h3{
+	font-family:Playfair Display;
+	margin-bottom: 20px;
+}
+
+#wrap>#main>#contents>.cont>span{
+	font-family: notokrL, gothamL, playfair;
+	color:#000;
+	line-height: 26px;
+}
+
+#wrap #contents>.contentParts {
+    height: 200px;
+    font-size: 30px;
+    font-weight: bold;  
+    text-align: center;
+    line-height: 200px;
+    border: 1px solid #aaa;
+    margin: 1px;
+    background-color: #ddd;
+    flex: 1;
+}
+/*////////////// div#wrap 끝 //////////////*/
+
+
+/*////////////// div#reserve 시작(호텔 예약 관련) //////////////*/
+
+main#main div#reserve select#hotelName {
+	width: 200px;
+	height: 30px;
+	font-size: 16px;
+	padding-left: 10px;
+	outline : none;
+	border: none;
+}
+
+#main #reserve select option {
+	font-size: 14px;
+}
+
+#main #reserve input[type=date] {
+	width: 150px;
+	height: 30px;
+	font-size: 14px;
+	padding-left: 10px;
+	outline : none;
+}
+
+#main #reserve input[type=number] {
+	width: 50px;
+	height: 30px;
+	font-size: 16px;
+	padding-left: 10px;
+	outline : none;
+	border: none;
+}
+
+
+/*////////////// div#footerWrap 시작 //////////////*/
+div#footerWrap {
+	height: 230px;
+	margin-bottom: 0;
+}
+
