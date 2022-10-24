@@ -1,0 +1,236 @@
+@charset "UTF-8";
+
+@import url(/resources/style/style_Reset.css);
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap')
+	;
+
+/* 	color: #d37643; */
+/* 	border-top: 2px solid #744f3b; */
+/* 	color: #fcf2dc; */
+div#hotelInfoWrap {
+	font-family: 'Nanum Gothic', sans-serif;
+	padding-top: 30px;
+	width: 100%;
+}
+
+div#hotelInfoWrap>div.head {
+	width: 1000px;
+	margin: 0 auto;
+	/* 	border: 1px solid #000; */
+}
+
+div#hotelInfoWrap>div.head>h1 {
+	text-align: left;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bold;
+	font-size: 24px;
+	color: #d37643;
+	margin: 10px 0;
+}
+
+div#hotelInfoWrap>div.head>h1>i {
+	color: #d37643;
+	font-size: 24px;
+	margin-right: 16px;
+}
+
+div#hotelInfoWrap>div.head>hr {
+	color: #d37643;
+	border-top: 3px solid #d37643;
+}
+
+div#hotelInfoWrap section:nth-child(2n) {
+	background-color: #fafafa;
+}
+
+div#hotelInfoWrap section p:nth-child(1) {
+	font-size: 24px;
+	font-weight: bold;
+	text-align: left;
+	color: #d37643;
+	line-height: 70px;
+}
+
+div#hotelInfoWrap section p:nth-child(2) {
+	color: #744f3b;
+}
+
+div#hotelInfoWrap section:nth-child(2) {
+	width: 850px;
+	margin: 30px auto 30px;
+	background-color: #fcf2dc;
+	line-height: 30px;
+	padding: 20px 40px;
+}
+
+div#hotelInfoWrap section:nth-child(2) p:nth-child(1) {
+	font-size: 20px;
+	text-align: center;
+}
+
+div#hotelInfoWrap section:not(:nth-child(2)) {
+	padding: 50px 300px;
+}
+
+div#hotelInfoWrap section:not(:nth-child(2)) p:nth-child(2) {
+	font-size: 14px;
+	line-height: 2em;
+}
+
+div#hotelInfoWrap section:not(:nth-child(2)) button {
+	border: none;
+	background-color: #d37643;
+	border-radius: 2px;
+	padding: 14px 35px;
+	cursor: pointer;
+	margin-top: 24px;
+	color: #fcf2dc;
+	font-size: 18px;
+}
+
+div#hotelInfoWrap section:not(:nth-child(2)) button:hover {
+	background-color: #744f3b;
+}
+
+div#hotelInfoWrap section>div.inner {
+	width: 1000px;
+	/* 	text-align: center; */
+	/* 	border: 1px solid #000; */
+	margin: 0 auto;
+}
+
+div#hotelInfoWrap section>div.tArea {
+	width: 40%;
+}
+
+div#hotelInfoWrap section>div.inner>div:nth-child(1) {
+	margin-right: 30px;
+}
+
+div#hotelInfoWrap section>div.inner img {
+	width: 450px;
+}
+
+/*/////////////////////////////////////////////////////////////////*/
+/*오시는 길//////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
+div#hotelInfoWrap>div#mapContainer {
+	text-align: center;
+	width: 1000px;
+	margin: 0 auto;
+	margin-bottom: 50px;
+}
+
+div#hotelInfoWrap>div#mapContainer>ul#directionList>li {
+	padding: 13px 23px;
+	font-size: 15px;
+	background-color: #d37643;
+	color: #fcf2dc;
+	cursor: pointer;
+}
+
+div#hotelInfoWrap>div#mapContainer>ul#directionList>li:hover {
+	background-color: #744f3b;
+}
+
+div#hotelInfoWrap>div#mapContainer>ul#directionList>li.selectedMap {
+	background-color: #744f3b;
+}
+
+div#hotelInfoWrap>div#mapContainer>ul#directionList {
+	flex-wrap: wrap;
+	width: 1000px;
+	justify-content: center;
+	margin: 0 auto;
+	gap: 5px;
+	margin-bottom: 30px;
+}
+
+div#hotelInfoWrap>div#mapContainer>div.map {
+	width: 1000px;
+	height: 440px;
+	/* 	border: 1px solid #000; */
+	margin: 0 auto;
+}
+
+div#hotelInfoWrap>div#sideInfoContainer {
+	margin: 0 auto;
+	width: 800px;
+	margin-bottom: 60px;
+}
+
+div#hotelInfoWrap>div#sideInfoContainer table {
+	width: 100%;
+	border-top: 2px solid #744f3b;
+	border-collapse: collapse;
+	margin-bottom: 30px;
+	color: #744f3b;
+	cursor: default;
+}
+
+div#hotelInfoWrap>div#sideInfoContainer table caption {
+	text-align: left;
+	font-weight: bold;
+	font-size: 20px;
+	margin: 10px 0;
+}
+
+div#hotelInfoWrap>div#sideInfoContainer table tr:nth-child(1) {
+	background-color: #fcf2dc;
+}
+
+div#hotelInfoWrap>div#sideInfoContainer table tr {
+	border-bottom: 1px solid #e7b38f;
+	height: 45px;
+	text-align: center;
+}
+
+div#hotelInfoWrap>div#sideInfoContainer table td:not(:nth-last-child(1)){
+	border-right: 1px solid #e7b38f;
+}
+
+div#hotelInfoWrap>div#sideInfoContainer table tr th:nth-child(1) {
+	width: 200px;
+}
+
+/*//////////////////////////////////////*/
+/* contact /////////////////////////////*/
+/*//////////////////////////////////////*/
+div#hotelInfoWrap section.contactSection p {
+	font-size: 24px;
+	font-weight: bold;
+	text-align: left;
+	color: #d37643;
+	line-height: 40px;
+}
+
+div#hotelInfoWrap>div#contactInfoContainer {
+	width: 1000px;
+	margin: 0 auto;
+	cursor: default;
+	margin-bottom: 100px;
+}
+
+div#hotelInfoWrap>div#contactInfoContainer table {
+	border-top: 1px solid #ddd;
+	width: 100%;
+	padding: 60px 30px 60px 20px;
+}
+
+div#hotelInfoWrap>div#contactInfoContainer table th {
+	width: 240px;
+	color: #744f3b;
+	font-size: 24px;
+	text-align: left;
+}
+
+div#hotelInfoWrap>div#contactInfoContainer table b {
+	margin-right: 5px;
+	line-height: 20px;
+}
+
+div#hotelInfoWrap>div#contactInfoContainer table td {
+	height: 100px;
+}

@@ -1,0 +1,256 @@
+@charset "UTF-8";
+
+@import url(/resources/style/style_Reset.css);
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap')
+	;
+
+div#userInfoWrap {
+	width: 900px;
+	margin: 0 auto;
+	font-family: 'Nanum Gothic', sans-serif;
+	/* 	border: 1px solid black; */
+}
+
+div#userInfoWrap>form#uEditFrm table>caption {
+	text-align: left;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bold;
+	font-size: 24px;
+	color: #d37643;
+	margin-bottom: 10px;
+}
+
+div#userInfoWrap>form#uEditFrm table>caption i {
+	color: #d37643;
+	margin-right: 10px;
+	margin-left: 2px;
+	font-size: 24px;
+}
+
+div#userInfoWrap>form#uEditFrm {
+	width: 100%;
+	/* 	border: 1px solid black; */
+}
+
+div#userInfoWrap>form#uEditFrm table {
+	width: 100%;
+	margin: 50px auto 50px;
+	font-family: 'Nanum Gothic', sans-serif;
+	border-top: 2px solid #744f3b;
+	border-collapse: collapse;
+}
+
+div#userInfoWrap table th {
+	text-align: left;
+	padding: 22px 20px 20px;
+	background-color: #fafafa;
+	font-size: 14px;
+	border-bottom: 1px solid #eee;
+}
+
+div#userInfoWrap table td {
+	border-bottom: 1px solid #eee;
+	padding: 0 20px;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+div#userInfoWrap table td input, div#userInfoWrap table td select {
+	border: 1px solid #b2b2b2;
+	border-radius: 2px;
+	height: 35px;
+	padding: 0 6px;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+div#userInfoWrap table td.td01 input, div#userInfoWrap table td.td03 select
+	{
+	width: 200px;
+}
+
+div#userInfoWrap table td.td02 input {
+	transform: translateY(4px);
+	margin: 0 7px;
+	width: 16px;
+	height: 16px;
+	border: 1px solid black;
+}
+
+div#userInfoWrap table td.td01 button, div#userInfoWrap table td.td07 button
+	{
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	height: 35px;
+	padding: 0 20px;
+	cursor: pointer;
+	margin-left: 4px;
+	cursor: pointer;
+}
+
+div#userInfoWrap table td.td01 button:hover, div#userInfoWrap table td.td07 button:hover
+	{
+	background-color: #ddd;
+}
+
+div#userInfoWrap table td select {
+	font-size: 14px;
+}
+
+div#userInfoWrap table td.td04 select:not(select#birthYear) {
+	margin-left: 14px;
+}
+
+div#userInfoWrap table td.td04 select {
+	margin-right: 2px;
+}
+
+div#userInfoWrap table td.td05 select, div#userInfoWrap table td.td05 input
+	{
+	width: 80px;
+}
+
+div#userInfoWrap table td.td06 input {
+	width: 180px;
+}
+
+div#userInfoWrap table td.td06 select {
+	margin-left: 4px;
+}
+
+div#userInfoWrap table td.td07 {
+	padding: 12px 20px;
+}
+
+div#userInfoWrap table td.td07 input:not(:nth-last-child(2)) {
+	margin-bottom: 10px;
+}
+
+div#userInfoWrap table td.td07 input:not(:nth-child(2)) {
+	width: 510px;
+}
+
+div#userInfoWrap table td.td08 {
+	border: none;
+	text-align: right;
+	padding: 0;
+}
+
+div#userInfoWrap table td.td08 button:disabled {
+	border: none;
+	background-color: #eee;
+	border-radius: 2px;
+	padding: 10px 35px;
+	margin-top: 15px;
+	color: #aaa;
+	font-size: 18px;
+	cursor: default;
+}
+
+div#userInfoWrap table td.td08 button:disabled:hover {
+	background-color: #eee;
+}
+
+div#userInfoWrap table td.td08 button {
+	border: none;
+	background-color: #d37643;
+	border-radius: 2px;
+	padding: 10px 35px;
+	cursor: pointer;
+	margin-top: 15px;
+	color: #fcf2dc;
+	font-size: 18px;
+}
+
+div#userInfoWrap table td.td08 button:hover {
+	background-color: #744f3b;
+}
+
+/*/////////////////////////////////////////////////*/
+/*// 비밀번호 변경 페이지 팝업 //////////////////////////*/
+/*/////////////////////////////////////////////////*/
+div#wrap.pwEditWrap {
+	width: 480px;
+	height: 300px;
+	padding: 20px 10px 10px 10px;
+	border: 2px solid #aaa;
+	border-radius: 6px;
+	margin: 50px auto;
+}
+
+div#wrap.pwEditWrap>form#pwEditFrm>h1 {
+	text-align: center;
+	margin-right: 14px;
+	margin-bottom: 20px;
+}
+
+div#wrap.pwEditWrap>form#pwEditFrm>table {
+	font-size: 16px;
+	width: 100%;
+	padding: 10px;
+}
+
+div#wrap.pwEditWrap>form#pwEditFrm>table th {
+	text-align: left;
+	padding: 20px 5px;
+	width: 140px;
+}
+
+div#wrap.pwEditWrap>form#pwEditFrm>table input:not(:nth-child(2)) {
+	border: 1px solid #b2b2b2;
+	border-radius: 2px;
+	height: 35px;
+	padding: 0 6px;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+div#wrap.pwEditWrap>form#pwEditFrm>table td:nth-last-child {
+	text-align: center;
+}
+
+div#wrap.pwEditWrap button {
+	width: 100%;
+	border: none;
+	background-color: #d37643;
+	border-radius: 2px;
+	padding: 10px 35px;
+	cursor: pointer;
+	margin-top: 15px;
+	color: #fcf2dc;
+	font-size: 18px;
+}
+
+#wrap_Popup button:hover {
+	background-color: #744f3b;
+}
+
+/*/////////////////////////////////////////////////*/
+/*// 비밀번호 변경 완료 팝업 ////////////////////////////*/
+/*/////////////////////////////////////////////////*/
+div#pwEditProcwrap {
+	width: 400px;
+	padding: 20px 20px;
+	border: 2px solid #aaa;
+	border-radius: 6px;
+	margin: 50px auto;
+	text-align: center;
+}
+
+div#pwEditProcwrap p {
+	font-size: 20px;
+}
+
+div#pwEditProcwrap button  {
+	width: 100%;
+	border: none;
+	background-color: #d37643;
+	border-radius: 2px;
+	padding: 10px 35px;
+	cursor: pointer;
+	margin-top: 15px;
+	color: #fcf2dc;
+	font-size: 18px;}
+
+div#pwEditProcwrap button:hover {
+	background-color: #744f3b;
+}

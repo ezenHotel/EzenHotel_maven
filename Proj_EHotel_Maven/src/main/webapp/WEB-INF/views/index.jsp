@@ -4,6 +4,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <%-- <jsp:useBean id="objDAO" class="pack_Reserve.ReserveMgr" scope="page"/>       --%>  
 <!DOCTYPE html>
@@ -19,7 +20,7 @@
 	
 	<div id="wrap">
 	
-	<%@ include file="/WEB-INF/views/common/header.jsp"%>
+	<c:import url="/WEB-INF/views/common/header.jsp" />
 	
 	   <!--  <header id="header" onclick="location.href='/bbs/write.jsp'">
 	    	<img src="/images/header_img.png" width="100%" alt="예약이미">
@@ -161,7 +162,7 @@
 	    
 	    <div id="footerWrap">
 	
-	       <%@ include file="/WEB-INF/views/common/footer.jsp"%>
+	       <c:import url="/WEB-INF/views/common/footer.jsp" />
 	    </div>
 		<!-- div#footerWrap -->
 				

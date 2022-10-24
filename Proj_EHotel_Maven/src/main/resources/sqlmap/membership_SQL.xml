@@ -24,5 +24,25 @@
 			 select * from memList order by no desc
 			 ]]>
 	</select>	
+	
+	<!-- 로그인을 위한 사용자 아이디 및 패스워드 일치 조회 시작 -->
+	<select id="login" parameterType="hashMap" resultType="hashMap" >
+		<![CDATA[
+		select uid, upw
+		from memberList
+		where uid = #{uid}
+		and upw = #{upw}
+		]]>
+	</select>
+	<!-- 로그인을 위한 사용자 아이디 및 패스워드 일치 조회 끝 -->
 
+	<!-- 마이페이지 회원 정보 출력을 위한 조회 시작 -->
+	<select id="mypage_print" parameterType="hashMap" resultType="hashMap">
+		<![CDATA[
+		select *
+		from memberList
+		where uid = #{sKey}
+		]]>
+	</select>
+	<!-- 마이페이지 회원 정보 출력을 위한 조회 끝 -->
 </mapper>

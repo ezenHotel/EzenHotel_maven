@@ -3,6 +3,8 @@ package pack.spring.basic;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,5 +37,19 @@ public class MemberServiceImp implements MemberService {
 	public String index() {
 		return null;
 	}
+	
+	// 로그인 시작
+	@Override
+	public Map<String, Object> login(Map<String, Object> map) {
+		return  this.memberDao.login(map);
+	}
+	// 로그인 끝
+	
+	// 마이페이지 시작
+	@Override
+	public Map<String, Object> mypage(Map<String, Object> map) {
+		return  this.memberDao.mypage(map);
+	}
+	// 마이페이지 끝
 
 }

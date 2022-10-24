@@ -1,0 +1,503 @@
+@charset "UTF-8";
+
+@import url(/resources/style/style_Reset.css);
+
+/*////////////////////////////////////////////////////////////*/
+/*////////////////// 회원가입 스텝 Label 시작 ////////////////////*/
+/*////////////////////////////////////////////////////////////*/
+ul#progress {
+	justify-content: space-between;
+	height: 100%;
+}
+
+ul#progress li {
+	position: relative;
+	background: #fff;
+	flex-grow: 1;
+	font-size: 11px;
+	color: #c2c9d0;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	border-top: 1px solid #d6dce2;
+	border-bottom: 1px solid #d6dce2;
+	box-sizing: border-box;
+}
+
+ul#progress li:first-of-type {
+	border-left: 1px solid #d6dce2;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+ul#progress li:last-of-type {
+	border-right: 1px solid #d6dce2;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+ul#progress li+li:before {
+	z-index: 1;
+	content: '';
+	position: absolute;
+	top: -1px;
+	left: 0;
+	background: url(https://static.wehago.com/imgs/cl/sp_cl.png) -13px
+		-872px no-repeat;
+	width: 11px;
+	height: 34px;
+}
+
+ul#progress li.check {
+	background: #f7fdff;
+	color: #309cff;
+	font-weight: bold;
+	border-top-color: #309cff;
+	border-bottom-color: #309cff;
+}
+
+ul#progress li.check:first-of-type {
+	border-left-color: #309cff
+}
+
+ul#progress li.check:last-of-type {
+	border-right-color: #309cff
+}
+
+ul#progress li.check+li:before {
+	background-position: 0 -872px
+}
+
+ul#progress li.check:before {
+	background-position: -26px -872px
+}
+
+ul#progress li>span {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	box-sizing: border-box;
+	padding-left: 10px;
+	line-height: 13px
+}
+
+ul#progress li.complete {
+	border-color: #c4daff;
+}
+
+ul#progress li.complete>span {
+	color: #c4daff;
+	padding-left: 20px;
+	font-weight: bold;
+}
+/*////////////////////////////////////////////////////////////*/
+/*///////////////////// 스텝 Label 끝 //////////////////////////*/
+/*////////////////////////////////////////////////////////////*/
+
+/*////////////////////////////////////////////////////////////////////*/
+/*////////// 회원가입 사용권 동의 시작 /member/joinAgreement ////////////// */
+/*////////////////////////////////////////////////////////////////////*/
+div#wrap.agreement {
+	width: 900px;
+	margin: 0 auto;
+	padding: 50px;
+}
+
+div#wrap>main>div.joinAgree>div#chkAllArea {
+	font-size: 18px;
+	margin: 40px 20px;
+}
+
+div#wrap>main>div.joinAgree>div#chkAllArea input {
+	width: 22px;
+	height: 22px;
+	transform: translateY(6px);
+}
+
+div#wrap>main>div.joinAgree>div#licenseArea {
+	/* 	border: 1px solid #08f; */
+	
+}
+
+div#wrap>main>div.joinAgree>div#licenseArea>div.termArea {
+	margin-bottom: 40px;
+}
+
+#wrap>main>.joinAgree>#licenseArea>.termArea>h3 {
+	width: 760px;
+	margin: 5px 20px;
+}
+
+#wrap>main>.joinAgree>#licenseArea>.termArea>iframe {
+	width: 760px;
+	border: 1px solid #aaa;
+	margin: 5px 20px;
+}
+
+#wrap>main>div.joinAgree>#licenseArea>.termArea>label {
+	margin-left: 20px;
+}
+
+#wrap>main>div.joinAgree>#licenseArea>.termArea>label>input[type=checkbox]
+	{
+	width: 18px;
+	height: 18px;
+	transform: translateY(3px);
+}
+
+#wrap>form#agreementFrm {
+	text-align: right;
+	margin-right: 20px;
+	/* 	border: 1px solid #000; */
+}
+
+#wrap>#agreementFrm>div#formArea>button {
+	color: #fcf2dc;
+	font-size: 20px;
+	padding: 10px 35px;
+	border: none;
+	border-radius: 4px;
+	background-color: #d37643;
+	cursor: pointer;
+}
+
+#wrap>#agreementFrm>#formArea>button:hover {
+	background-color: #744f3b;
+}
+/*////////////////////////////////////////////////////////////////////*/
+/*////// 회원가입 사용권 동의 끝 /member/joinAgreement.jsp //////////////// */
+/*////////////////////////////////////////////////////////////////////*/
+
+/*////////////////////////////////////////////////////////////////////*/
+/*/////////////// 회원가입 시작 /join/join.jsp //////////////// */
+/*////////////////////////////////////////////////////////////////////*/
+div#wrap.joinWrap {
+	width: 900px;
+	padding-top: 50px;
+	margin: 0 auto;
+}
+
+div#wrap.joinWrap>main>div#contents>form#joinFrm>table#joinFrmTbl>caption
+	{
+	text-align: left;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bold;
+	font-size: 20px;
+	color: #d37643;
+	margin-bottom: 10px;
+}
+
+div#wrap.joinWrap>main>div#contents>form#joinFrm>table#joinFrmTbl>caption i
+	{
+	color: #d37643;
+	margin-right: 10px;
+	margin-left: 2px;
+	font-size: 20px;
+}
+
+div#wrap.joinWrap>main>div#contents {
+	width: 100%;
+	/* 	border: 1px solid black; */
+}
+
+div#wrap.joinWrap>main>div#contents>form#joinFrm>table#joinFrmTbl {
+	width: 100%;
+	margin: 50px auto 50px;
+	font-family: 'Noto Sans KR', sans-serif;
+	border-top: 2px solid #744f3b;
+	border-collapse: collapse;
+}
+
+div#wrap.joinWrap table#joinFrmTbl th {
+	text-align: left;
+	padding: 22px 20px 20px;
+	background-color: #fafafa;
+	font-size: 14px;
+	border-bottom: 1px solid #eee;
+}
+
+div#wrap.joinWrap table#joinFrmTbl th img {
+	transform: translateY(1px);
+}
+
+div#wrap.joinWrap table#joinFrmTbl td {
+	border-bottom: 1px solid #eee;
+	padding: 0 20px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+div#wrap.joinWrap table#joinFrmTbl td input, div#wrap.joinWrap table#joinFrmTbl td select
+	{
+	border: 1px solid #b2b2b2;
+	border-radius: 2px;
+	height: 35px;
+	padding: 0 6px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+div#wrap.joinWrap table#joinFrmTbl td.td01 input:nth-child(1), div#wrap.joinWrap table#joinFrmTbl td.td02 input,
+	div#wrap.joinWrap table#joinFrmTbl td.td03 input, div#wrap.joinWrap table#joinFrmTbl td.td04 input,
+	div#wrap.joinWrap table#joinFrmTbl td.td05 select {
+	width: 200px;
+}
+
+div#wrap.joinWrap table#joinFrmTbl td.td01 input:not(:nth-child(1)) {
+	transform: translateY(12px);
+	margin: 0 7px;
+	width: 16px;
+}
+
+div#wrap.joinWrap table#joinFrmTbl td.td02 button, div#wrap.joinWrap table#joinFrmTbl td.td09 button
+	{
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	height: 35px;
+	padding: 0 20px;
+	cursor: pointer;
+	margin-left: 4px;
+	cursor: pointer;
+}
+
+div#wrap.joinWrap table#joinFrmTbl td.td02 button:hover, div#wrap.joinWrap table#joinFrmTbl td.td09 button:hover
+	{
+	background-color: #ddd;
+}
+
+div#wrap.joinWrap table#joinFrmTbl td span.caption {
+	color: #b2b2b2;
+	margin: 0 6px;
+}
+
+div#wrap.joinWrap table#joinFrmTbl td select {
+	font-size: 14px;
+}
+
+div#wrap.joinWrap table#joinFrmTbl td.td06 select:not(:nth-child(1)) {
+	margin-left: 14px;
+}
+
+div#wrap.joinWrap table#joinFrmTbl td.td06 select {
+	margin-right: 2px;
+}
+
+div#wrap.joinWrap table#joinFrmTbl td.td07 select, div#wrap.joinWrap table#joinFrmTbl td.td07 input
+	{
+	width: 80px;
+}
+
+div#wrap.joinWrap table#joinFrmTbl td.td08 input {
+	width: 180px;
+}
+
+div#wrap.joinWrap table#joinFrmTbl td.td08 select {
+	margin-left: 4px;
+}
+
+div#wrap.joinWrap table#joinFrmTbl td.td09 {
+	padding: 12px 20px;
+}
+
+div#wrap.joinWrap table#joinFrmTbl td.td09 input:not(:nth-last-child(1))
+	{
+	margin-bottom: 10px;
+}
+
+div#wrap.joinWrap table#joinFrmTbl td.td09 input:not(:nth-child(1)) {
+	width: 510px;
+}
+
+div#wrap.joinWrap table#joinFrmTbl td.td10 {
+	border: none;
+	text-align: right;
+	padding: 0;
+}
+
+div#wrap.joinWrap table#joinFrmTbl td.td10 button {
+	border: none;
+	background-color: #d37643;
+	border-radius: 2px;
+	padding: 10px 35px;
+	cursor: pointer;
+	margin-top: 15px;
+	color: #fcf2dc;
+	font-size: 18px;
+}
+
+div#wrap.joinWrap table#joinFrmTbl td.td10 button:hover {
+	background-color: #744f3b;
+}
+
+/*////////////////////////////////////////////////////////////////////*/
+/*/////////////// 회원가입 끝 /join/join.jsp //////////////// */
+/*////////////////////////////////////////////////////////////////////*/
+
+/*////////////////////////////////////////////////////////////////////*/
+/*//////// 아이디중복체크 스타일 시작 /member/idCheck.jsp ////////////////// */
+/*////////////////////////////////////////////////////////////////////*/
+div#wrap_Popup {
+	width: 439px;
+	height: 274px;
+	text-align: center;
+	padding: 80px 40px;
+	border: 2px solid #aaa;
+	border-radius: 6px;
+	margin: 50px auto;
+}
+
+#wrap_Popup>div>h1 {
+	margin-right: 14px;
+	margin-bottom: 20px;
+	display: inline-block;
+}
+
+#wrap_Popup>div>span {
+	font-size: 20px;
+}
+
+#wrap_Popup>hr {
+	margin-bottom: 30px;
+}
+
+#wrap_Popup  div#closeBtnArea {
+	text-align: center;
+}
+
+#wrap_Popup button {
+	border: none;
+	background-color: #d37643;
+	border-radius: 2px;
+	padding: 10px 35px;
+	cursor: pointer;
+	margin-top: 15px;
+	color: #fcf2dc;
+	font-size: 18px;
+}
+
+#wrap_Popup button:hover {
+	background-color: #744f3b;
+}
+/*////////////////////////////////////////////////////////////////////*/
+/*//////// 아이디중복체크 스타일 끝 /member/idCheck.jsp //////// */
+/*////////////////////////////////////////////////////////////////////*/
+
+/*////////////////////////////////////////////////////////////////////*/
+/*/////////////// 회원가입완료 페이지 시작 /join/joinComplete.jsp ///////// */
+/*////////////////////////////////////////////////////////////////////*/
+div#wrap.joinComplete {
+	width: 900px;
+	margin: 0 auto;
+	padding: 50px;
+}
+
+div#wrap.joinComplete>div#contents {
+	background-color: #fcf2dc;
+	text-align: center;
+	margin-top: 20px;
+	padding: 30px;
+	font-family: 'Noto Sans KR', sans-serif;
+	background-image:linear-gradient(
+	rgba(252, 243, 220, 1),
+	rgba(252, 243, 220, 0.8)),url('/images/moroccan-flower.png');
+}
+
+div#wrap.joinComplete>div#contents h2 {
+	color: #d37643;
+	font-size: 18px;
+}
+
+div#wrap.joinComplete>div#contents i {
+	font-size: 48px;
+	color: #744f3b;
+	line-height: 70px;
+	margin-top: 20px;
+}
+
+div#wrap.joinComplete>div#contents h1 {
+	color: #744f3b;
+	font-size: 24px;
+}
+
+div#wrap.joinComplete>div#contents p {
+	margin: 20px 0;
+	line-height: 24px;
+	font-weight: bold;
+}
+
+div#wrap.joinComplete>div#contents div {
+	display: inline-block;
+	padding: 5px 20px;
+	border-radius: 10px;
+	background-color: #fff;
+	font-weight: bold;
+}
+
+div#wrap.joinComplete>div#contents img.logo {
+	width:130px;
+}
+
+div#wrap.joinComplete>div#contents div>span {
+	color: #d37643;
+}
+
+div#wrap.joinComplete>div#contents button {
+	border: none;
+	background-color: #d37643;
+	border-radius: 2px;
+	padding: 10px 35px;
+	cursor: pointer;
+	margin-top: 40px;
+	color: #fcf2dc;
+	font-size: 18px;
+}
+
+div#wrap.joinComplete>div#contents button:hover {
+	background-color: #744f3b;
+}
+
+/*////////////////////////////////////////////////////////////////////*/
+/*/////////////// 회원가입완료 페이지 끝 /join/joinComplete.jsp /////////// */
+/*////////////////////////////////////////////////////////////////////*/
+
+/*////////////////////////////////////////////////////////////////////*/
+/*/////////////// 로그인 시작 /member/login.jsp //////////////// */
+/*////////////////////////////////////////////////////////////////////*/
+div#wrap>main#main>div.loginDiv {
+	text-align: center;
+	padding: 40px;
+	margin: 0 auto;
+}
+
+div#wrap>main#main>div.loginDiv>form#loginFrm {
+	padding: 20px;
+	border: 2px solid #d6dce2;
+	display: inline-block;
+}
+
+#main>.loginDiv>#loginFrm input {
+	width: 320px;
+	font-size: 17px;
+	padding: 13px 16px;
+	margin-bottom: 7px;
+	display: block;
+	border: 1px solid #aaa;
+}
+
+#main>.loginDiv>#loginFrm button {
+	border: none;
+	background-color: #d37643;
+	border-radius: 2px;
+	height: 50px;
+	width: 100%;
+	cursor: pointer;
+	margin-top: 10px;
+	color: #fcf2dc;
+	font-size: 18px;
+}
+
+#main>.loginDiv>#loginFrm button:hover {
+	background-color: #744f3b;
+}
+
+/*////////////////////////////////////////////////////////////////////*/
+/*/////////////// 로그인 끝 /member/login.jsp //////////////// */
+/*////////////////////////////////////////////////////////////////////*/
