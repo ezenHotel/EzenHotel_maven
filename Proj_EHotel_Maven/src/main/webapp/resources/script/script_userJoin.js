@@ -550,7 +550,7 @@ $(document).ready(function() {
 	$("#uEditFrm button#pwEditBtn").click(function() {
 
 
-		let url = "/userInfo/pwEdit.jsp";
+		let url = "/pwEdit";
 		let nickName = "pwEditPop";
 
 		let w = screen.width;     // 1920
@@ -587,7 +587,7 @@ $(document).ready(function() {
 		}
 	});
 
-	// 비밀번호 변경 팝업창 닫기
+	// 비밀번호 변경 버튼
 	$("form#pwEditFrm button#pwEditBtn").click(function() {
 
 		let upw = $("form#pwEditFrm input[name=upw]").val();
@@ -612,7 +612,7 @@ $(document).ready(function() {
 			$("input#pwChk").focus();
 		} else {
 
-			$("form#pwEditFrm").attr("action", "pwEditProc.jsp")
+			$("form#pwEditFrm").attr("action", "/pwEditProc")
 				.attr("onsubmit", "")
 				.submit();
 		}

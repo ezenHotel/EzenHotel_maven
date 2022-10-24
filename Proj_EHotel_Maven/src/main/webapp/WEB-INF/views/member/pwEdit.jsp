@@ -10,9 +10,9 @@ request.setCharacterEncoding("UTF-8");
 <title>Insert title here</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link rel="stylesheet" href="/style/style_myPage.css">
-<script src="/source/jquery-3.6.0.min.js"></script>
-<script src="/script/script_userJoin.js"></script>
+<link rel="stylesheet" href="/resources/style/style_myPage.css">
+<script src="/resources/source/jquery-3.6.0.min.js"></script>
+<script src="/resources/script/script_userJoin.js"></script>
 </head>
 <body>
 	<div id="wrap" class="pwEditWrap">

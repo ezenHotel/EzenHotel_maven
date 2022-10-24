@@ -22,28 +22,26 @@
 
 			<!-- 실제 작업 영역 시작 -->
 			<div id="contents" class="loginDiv">
-
+${isOK}
 				<form id="loginFrm" name="loginFrm">
-					<%
-					String isOK = request.getParameter("isOK");
-					if (isOK != null) {
-					%>
-					<div id="err" style="color: red; padding-bottom: 10px;">
-						일치하는 회원 정보 없음<br> 아이디 혹은 비밀번호를 확인해주세요.
-					</div>
-					<script>
-						$("div#err").fadeTo(500, 0.1, function() {
-							$("div#err").fadeTo(500, 1, function() {
+					<c:choose>
+						<c:when test="${isOK}!=null">
+							<div id="err" style="color: red; padding-bottom: 10px;">
+								일치하는 회원 정보 없음<br> 아이디 혹은 비밀번호를 확인해주세요.
+							</div>
+							<script>
 								$("div#err").fadeTo(500, 0.1, function() {
 									$("div#err").fadeTo(500, 1, function() {
+										$("div#err").fadeTo(500, 0.1, function() {
+											$("div#err").fadeTo(500, 1, function() {
+											})
+										})
 									})
-								})
-							})
-						});
-					</script>
-					<%
-					}
-					%>
+								});
+							</script>
+						</c:when>
+					</c:choose>
+
 					<div id="loginArea">
 						<div id="loginInput">
 							<input type="text" name="uid" placeholder="아이디 입력"> <input

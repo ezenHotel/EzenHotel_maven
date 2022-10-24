@@ -40,5 +40,9 @@ public class MemberDao {
 	public Map<String, Object> mypageEdit(Map<String, Object> map) {
 		return this.sqlSessionTemplate.selectOne("member.mypage_edit", map);
 	}
+	
+	public Map<String, Object> pwEdit(Map<String, Object> map) {
+		return this.sqlSessionTemplate.selectOne("member.pw_edit", map);
+	}
 	// 마이 페이지 끝
 }

@@ -74,8 +74,10 @@ public class MemberController {
 
 	// 로그인 시작
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView login() {
-		return new ModelAndView("member/login");
+	public ModelAndView login(@RequestParam Map<String, Object> map) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/login");
+		return mav;
 	}
 
 	@ResponseBody
@@ -83,11 +85,12 @@ public class MemberController {
 	public ModelAndView loginProc(@RequestParam Map<String, Object> map, HttpSession session) {
 		Map<String, Object> loginMap = this.memberService.login(map);
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("data", loginMap);
-		String uid = map.get("uid").toString();
-		if (uid == null) {
-			mav.setViewName("/member/login");
+		if (loginMap == null) {
+			mav.addObject("isOK", "no");
+			mav.setViewName("redirect:/login");
 		} else {
+			String uid = loginMap.get("uid").toString();
+			mav.addObject("data", loginMap);
 			session.setAttribute("isLogin", uid);
 			mav.setViewName("/index");
 		}
@@ -112,15 +115,11 @@ public class MemberController {
 		map.put("sKey", (String) session.getAttribute("isLogin"));
 		Map<String, Object> myPageMap = this.memberService.mypage(map);
 		ModelAndView mav = new ModelAndView();
-		System.out.print("프린트 갑니다요"+myPageMap);
 		mav.addObject("data", myPageMap);
-		System.out.print("프린트 또 갑니다요"+mav);
-		String no = myPageMap.get("no").toString();
-		mav.addObject("no", no);
 		mav.setViewName("/member/userEdit");
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/mypageProc", method = RequestMethod.GET)
 	public ModelAndView mypageProc(@RequestParam Map<String, Object> map, HttpSession session) {
 		map.put("sKey", (String) session.getAttribute("isLogin"));
@@ -129,5 +128,21 @@ public class MemberController {
 		mav.setViewName("redirect:/mypage");
 		return mav;
 	}
-	// 마이페이지 끝
+	
+	@RequestMapping(value = "/pwEdit", method = RequestMethod.GET)
+	public ModelAndView pwEditPage() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/member/pwEdit");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/pwEditProc", method = RequestMethod.POST)
+	public ModelAndView pwEdit(@RequestParam Map<String, Object> map, HttpSession session) {
+		map.put("sKey", (String) session.getAttribute("isLogin"));
+		this.memberService.pwEdit(map);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/member/pwEditProc");
+		return mav;
+		// 마이페이지 끝
+	}
 }

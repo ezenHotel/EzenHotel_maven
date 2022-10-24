@@ -47,12 +47,20 @@
 	<!-- 마이페이지 회원 정보 출력을 위한 조회 끝 -->
 	
 	<!-- 마이페이지 회원 정보 수정 시작 -->
-	<select id="mypage_edit" parameterType="hashMap">
+	<update id="mypage_edit" parameterType="hashMap">
 		<![CDATA[
 		update memberList
 		set email=#{email}, name=#{name}, gender=#{gender}, country=#{country}, bDate=#{bDate}, contact=#{contact}, zipCode=#{zipCode}, address=#{address}, dAddress=#{dAddress}
 		where uid=#{sKey} 
 		]]>
-	</select>
+	</update>
 	<!-- 마이페이지 회원 정보 수정 끝 -->
+	
+	<!-- 비밀번호 변경 시작 -->
+	<update id="pw_edit" parameterType="hashMap" keyProperty="upw" keyColumn="upw">
+		<![CDATA[
+		update memberList set upw=#{upw} where uid=#{sKey} 
+		]]>
+	</update>
+	<!-- 비밀번호 변경 끝 -->
 </mapper>
