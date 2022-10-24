@@ -154,6 +154,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.19</version>
 		</dependency>
+		
 	</dependencies>
 	<build>
 		<plugins>
@@ -190,6 +191,7 @@
 				<configuration>
 					<mainClass>org.test.int1.Main</mainClass>
 				</configuration>
+				
 			</plugin>
 		</plugins>
 	</build>

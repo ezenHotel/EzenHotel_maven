@@ -120,5 +120,14 @@ public class MemberController {
 		mav.setViewName("/member/userEdit");
 		return mav;
 	}
+	
+	@RequestMapping(value = "/mypageProc", method = RequestMethod.GET)
+	public ModelAndView mypageProc(@RequestParam Map<String, Object> map, HttpSession session) {
+		map.put("sKey", (String) session.getAttribute("isLogin"));
+		this.memberService.mypageEdit(map);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/mypage");
+		return mav;
+	}
 	// 마이페이지 끝
 }

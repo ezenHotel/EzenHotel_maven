@@ -21,6 +21,7 @@ public interface MemberService {
 	
 	// 마이페이지 시작
 	Map<String, Object> mypage(Map<String, Object> map);
+	Map<String, Object> mypageEdit(Map<String, Object> map);
 	// 마이페이지 끝
 
 }

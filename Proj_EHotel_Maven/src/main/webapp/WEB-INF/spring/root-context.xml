@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	
+
 	<!-- mysql dataSource -->
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp2.BasicDataSource"
@@ -27,5 +27,4 @@ acterEncoding=UTF-8" />
 		class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
-	
 </beans>

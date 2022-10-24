@@ -100,41 +100,10 @@
 							<p>주소</p>
 						</th>
 						<td class="td07">
-						
-						<c:set var="zipCode"/>
-						<c:set var="address"/>
-						<c:set var="dAddress"/>
-						
-						<c:choose>
-							<c:when test="${data.zipCode}==null">
-								<c:set var="zipCode" value=""/>
-							</c:when>
-							<c:otherwise>
-								<c:set var="zipCode" value="${data.zipCode}"/>
-							</c:otherwise>
-						</c:choose>
-						
-						<c:choose>
-							<c:when test="${data.address}==null">
-								<c:set var="address" value=""/>
-							</c:when>
-							<c:otherwise>
-								<c:set var="address" value="${data.address}"/>
-							</c:otherwise>
-						</c:choose>
-						
-						<c:choose>
-							<c:when test="${data.dAddress}==null">
-								<c:set var="dAddress" value=""/>
-							</c:when>
-							<c:otherwise>
-								<c:set var="dAddress" value="${data.dAddress}"/>
-							</c:otherwise>
-						</c:choose>
-						
 						<input type="hidden" id="prevZipCode" value="${data.zipCode}">
 							<input type="text" readonly name="zipCode" value="${data.zipCode}">
-							<button type="button" id="searchAddress">우편번호 찾기</button> <br>
+							<button type="button" id="searchAddress">우편번호 찾기</button>
+							<button type="button" id="cleanAddress">주소 지우기</button> <br>
 							<input type="text" readonly name="address" value="${data.address}">
 							<br> <input type="hidden" id="prevAddress"
 							value="${data.address}"> <input type="text" name="dAddress"

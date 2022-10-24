@@ -91,6 +91,17 @@ $(document).ready(function() {
 
 	});
 	////////////////////////////////////////////////
+	
+	// 우편번호 지우기 //////////////////////////////////////
+	$("button#cleanAddress").click(function(){
+		$("input[name=zipCode]").val(null);
+		$("input[name=zipCode]").trigger('change');
+		$("input[name=address]").val("");
+		$("input[name=address]").trigger('change');
+		$("input[name=dAddress]").val("");
+		$("input[name=dAddress]").trigger('change');
+	});
+	//////////////////////////////////////////////////////
 
 	// 유효성 검사 시작 ////////////////////////////////
 	$("button#joinBtn").click(function() {
@@ -528,7 +539,7 @@ $(document).ready(function() {
 			//				document.onkeydown = notReload; // 경고창 이후 새로고침 방지
 			$("input#email02").focus();
 		} else {
-			$("form#uEditFrm").attr("action", "userEditProc.jsp")
+			$("form#uEditFrm").attr("action", "/mypageProc")
 				.attr("onsubmit", "")
 				.submit();
 		}

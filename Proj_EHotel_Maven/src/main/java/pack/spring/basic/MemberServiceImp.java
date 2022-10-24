@@ -50,6 +50,11 @@ public class MemberServiceImp implements MemberService {
 	public Map<String, Object> mypage(Map<String, Object> map) {
 		return  this.memberDao.mypage(map);
 	}
+	
+	@Override
+	public Map<String, Object> mypageEdit(Map<String, Object> map) {
+		return  this.memberDao.mypageEdit(map);
+	}
 	// 마이페이지 끝
 
 }
