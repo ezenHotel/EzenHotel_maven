@@ -76,8 +76,8 @@ public class MemberController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login(@RequestParam Map<String, Object> map) {
 		ModelAndView mav = new ModelAndView();
-		if(map.get("isOK") != null) {
-			String isOK = map.get("isOK").toString();			
+		if (map.get("isOK") != null) {
+			String isOK = map.get("isOK").toString();
 			mav.addObject("isOK", isOK);
 		}
 		mav.setViewName("member/login");
@@ -124,7 +124,7 @@ public class MemberController {
 			map.put("sKey", sKey);
 			Map<String, Object> myPageMap = this.memberService.mypage(map);
 			mav.addObject("data", myPageMap);
-			mav.setViewName("/member/userEdit");			
+			mav.setViewName("/member/userEdit");
 		}
 		return mav;
 	}
@@ -137,14 +137,14 @@ public class MemberController {
 		mav.setViewName("redirect:/mypage");
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/pwEdit", method = RequestMethod.GET)
 	public ModelAndView pwEditPage() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/member/pwEdit");
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/pwEditProc", method = RequestMethod.POST)
 	public ModelAndView pwEdit(@RequestParam Map<String, Object> map, HttpSession session) {
 		map.put("sKey", (String) session.getAttribute("isLogin"));
@@ -155,7 +155,6 @@ public class MemberController {
 	}
 	// 마이페이지 끝
 
-	
 	// 회원가입 시작
 	@RequestMapping("/join")
 	public ModelAndView joinAgreement() {
@@ -163,7 +162,7 @@ public class MemberController {
 		mav.setViewName("/member/join/joinAgreement");
 		return mav;
 	}
-	
+
 	@ResponseBody
 	@RequestMapping("/joinFrm")
 	public ModelAndView joinFrm(@RequestParam Map<String, Object> map) {
@@ -173,47 +172,67 @@ public class MemberController {
 			mav.setViewName("redirect:/");
 		} else {
 			// 올바른 경로로 접근시
-			mav.setViewName("/member/join/join");			
+			mav.setViewName("/member/join/join");
 		}
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/joinProc", method = RequestMethod.GET)
 	public ModelAndView joinProc(@RequestParam Map<String, Object> map) {
 		int isDone = this.memberService.joinProc(map);
 		ModelAndView mav = new ModelAndView();
 		String name = map.get("name").toString();
-		if(isDone > 0) {
+		if (isDone > 0) {
 			// 정상 가입
-			mav.addObject("name",name);
+			mav.addObject("name", name);
 			mav.setViewName("/member/join/joinComplete");
 		} else {
 			// 가입 실패시
-			mav.addObject("msg","잘못된 정보입니다. 다시 시도해 주세요.");
-			mav.addObject("url","/");
+			mav.addObject("msg", "잘못된 정보입니다. 다시 시도해 주세요.");
+			mav.addObject("url", "/");
 			mav.setViewName("/member/join/catchError");
 		}
 		return mav;
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/idChk")
 	public ModelAndView idChkProc(@RequestParam Map<String, Object> map) {
 		String uid = map.get("uid").toString();
 		int isExist = this.memberService.inqId(map);
 		ModelAndView mav = new ModelAndView();
-		if(isExist == 0) {
-			mav.addObject("isExist","no");
+		if (isExist == 0) {
+			mav.addObject("isExist", "no");
 		} else {
-			mav.addObject("isExist","yes");
+			mav.addObject("isExist", "yes");
 		}
-		mav.addObject("uid",uid);
+		mav.addObject("uid", uid);
 		mav.setViewName("/member/join/idCheck");
 		return mav;
 	}
+
 	// 회원가입 끝
 	// +++
 	// 회원가입 이용약관 페이지 시작
+	@RequestMapping(value = "/uA")
+	public ModelAndView joinAg_uA() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/member/ind/uA");
+		return mav;
+	}
 	
+	@RequestMapping(value = "/sA")
+	public ModelAndView joinAg_sA() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/member/ind/sA");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/pA")
+	public ModelAndView joinAg_pA() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/member/ind/pA");
+		return mav;
+	}
 	// 회원가입 이용약관 페이지 끝
 }

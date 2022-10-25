@@ -45,7 +45,7 @@
 					<div class="termArea">
 						<h3>[필수] 이용약관 동의</h3>
 						<!--  iframe, textarea, div 중 선택하여 제작한다. -->
-						<iframe src="/WEB-INF/views/member/ind/uA" class="usingAgree"></iframe>
+						<iframe src="/uA" class="usingAgree"></iframe>
 						<br> <label> 이용약관에 동의하십니까? <input type="checkbox"
 							class="usingAgreeChk chkRequired" data-link="0"> 동의함 (필수)
 						</label>
@@ -53,7 +53,7 @@
 
 					<div class="termArea">
 						<h3>[필수] 개인정보 수집 및 이용 동의</h3>
-						<iframe src="/WEB-INF/views/member/ind/pA.jsp" class="usingAgree"></iframe>
+						<iframe src="/pA" class="usingAgree"></iframe>
 						<br> <label> 개인정보 수집 및 이용에 동의하십니까? <input
 							type="checkbox" class="usingAgreeChk chkRequired" data-link="1">
 							동의함 (필수)
@@ -62,7 +62,7 @@
 
 					<div class="termArea">
 						<h3>[선택] 이벤트 정보 수신 동의</h3>
-						<iframe src="/WEB-INF/views/member/ind/sA.jsp" class="usingAgree"></iframe>
+						<iframe src="/sA" class="usingAgree"></iframe>
 						<br> <label> 이벤트 정보 수신에 동의하십니까? <input
 							type="checkbox" class="usingAgreeChk" data-link="2"> 동의함
 							(선택)
