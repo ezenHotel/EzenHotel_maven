@@ -18,7 +18,6 @@ public class AdminController {
 	@Autowired
 	AdminService adminService;
 
-	// 어드민 페이지 ( 회원 전체 관리 페이지 ) 시작
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView admin(@RequestParam Map<String, Object> map, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
@@ -49,6 +48,7 @@ public class AdminController {
 		return mav;
 	}
 	
+	// 어드민 페이지 ( 회원 전체 관리 페이지 ) 시작
 	@RequestMapping(value = "/admin/memberList")
 	public ModelAndView admin_(@RequestParam Map<String, Object> map, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
@@ -64,6 +64,7 @@ public class AdminController {
 		}
 		return mav;
 	}
+	// 어드민 페이지 ( 회원 전체 관리 페이지 ) 끝
 	
-	// 어드민 페이지 끝
+	
 }
