@@ -30,7 +30,7 @@
 						<c:when test="${isLogin==null}">
 							<li class="bar"
 								onclick="location.href='/reserve/reserve.jsp?hCode=H01'">예약하기</li>
-							<li class="bar" onclick="location.href='/join/join.jsp'">회원가입</li>
+							<li class="bar" onclick="location.href='/join'">회원가입</li>
 							<li>
 								<button type="button" onclick="location.href='/login'">로그인</button>
 							</li>

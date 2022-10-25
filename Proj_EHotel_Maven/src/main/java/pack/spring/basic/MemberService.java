@@ -25,4 +25,8 @@ public interface MemberService {
 	Map<String, Object> pwEdit(Map<String, Object> map);
 	// 마이페이지 끝
 
+	// 회원가입 시작
+	int joinProc(Map<String, Object> map);
+	int inqId(Map<String, Object> map);
+	// 회원가입 끝
 }

@@ -143,6 +143,65 @@ public class MemberController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/member/pwEditProc");
 		return mav;
-		// 마이페이지 끝
 	}
+	// 마이페이지 끝
+
+	
+	// 회원가입 시작
+	@RequestMapping("/join")
+	public ModelAndView joinAgreement() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/member/join/joinAgreement");
+		return mav;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/joinFrm")
+	public ModelAndView joinFrm(@RequestParam Map<String, Object> map) {
+		ModelAndView mav = new ModelAndView();
+		if (map.get("vCode") == null) {
+			// 잘못된 경로로 접근시
+			mav.setViewName("redirect:/");
+		} else {
+			// 올바른 경로로 접근시
+			mav.setViewName("/member/join/join");			
+		}
+		return mav;
+	}
+	
+	@RequestMapping(value = "/joinProc", method = RequestMethod.GET)
+	public ModelAndView joinProc(@RequestParam Map<String, Object> map) {
+		int isDone = this.memberService.joinProc(map);
+		ModelAndView mav = new ModelAndView();
+		String name = map.get("name").toString();
+		if(isDone > 0) {
+			// 정상 가입
+			mav.addObject("name",name);
+			mav.setViewName("/member/join/joinComplete");
+		} else {
+			// 가입 실패시
+			mav.addObject("msg","잘못된 정보입니다. 다시 시도해 주세요.");
+			mav.addObject("url","/");
+			mav.setViewName("/member/join/catchError");
+		}
+		return mav;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/idChk")
+	public ModelAndView idChkProc(@RequestParam Map<String, Object> map) {
+		String uid = map.get("uid").toString();
+		int isExist = this.memberService.inqId(map);
+		ModelAndView mav = new ModelAndView();
+		if(isExist == 0) {
+			mav.addObject("isExist","no");
+		} else {
+			mav.addObject("isExist","yes");
+		}
+		mav.addObject("uid",uid);
+		mav.setViewName("/member/join/idCheck");
+		return mav;
+	}
+	// 회원가입 끝
+	
 }

@@ -397,7 +397,7 @@ div#wrap.joinComplete>div#contents {
 	font-family: 'Noto Sans KR', sans-serif;
 	background-image:linear-gradient(
 	rgba(252, 243, 220, 1),
-	rgba(252, 243, 220, 0.8)),url('/images/moroccan-flower.png');
+	rgba(252, 243, 220, 0.8)),url('/resources/images/moroccan-flower.png');
 }
 
 div#wrap.joinComplete>div#contents h2 {

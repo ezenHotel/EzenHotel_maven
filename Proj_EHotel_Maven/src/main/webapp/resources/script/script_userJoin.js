@@ -189,7 +189,7 @@ $(document).ready(function() {
 				//				document.onkeydown = notReload; // 경고창 이후 새로고침 방지
 				$("input#email02").focus();
 			} else {
-				$("#joinFrm").attr("action", "joinProc.jsp")
+				$("#joinFrm").attr("action", "/joinProc")
 					.attr("onsubmit", "")
 					.submit();
 			}
@@ -274,18 +274,16 @@ $(document).ready(function() {
 		if (uid == "") {    // 전체 공백 체크
 
 			alert("아이디를 입력해주세요");
-			document.onkeydown = notReload; // 새로고침 방지
 			$("input[name=uid]").focus();
 
 		} else if (uid.length < 5) {    // 글자수 체크
 
 			alert("아이디는 최소 5글자 이상입니다.");
-			document.onkeydown = notReload; // 새로고침 방지
 			$("input[name=uid]").focus();
 
 		} else {
-
-			let url = "/join/idCheck.jsp?uid=" + uid;
+			
+			let url = "/idChk?uid="+uid;
 			let nickName = "idChkPop";
 
 			let w = screen.width;     // 1920
