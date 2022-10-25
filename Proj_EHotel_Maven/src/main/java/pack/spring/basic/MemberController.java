@@ -15,63 +15,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MemberController {
 
-	///////////////////////////////////////////////// 참고용 코드
-	///////////////////////////////////////////////// ///////////////////////////////////////////////////
-	@RequestMapping(value = "/create", method = RequestMethod.GET)
-	public ModelAndView create() {
-		return new ModelAndView("member/create");
-	}
-
 	@Autowired
 	MemberService memberService;
 
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public ModelAndView createPost(@RequestParam Map<String, Object> map) {
-		ModelAndView mav = new ModelAndView();
-		String memberId = this.memberService.create(map);
-		if (memberId == null) {
-			mav.setViewName("redirect:/create");
-		} else {
-			mav.setViewName("redirect:/detail?memberId=" + memberId);
-		}
-		return mav;
-	}
-
-	// 상세보기 시작
-	@RequestMapping(value = "/detail", method = RequestMethod.GET)
-	public ModelAndView detail(@RequestParam Map<String, Object> map) {
-		Map<String, Object> detailMap = this.memberService.detail(map);
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("data", detailMap);
-		String no = map.get("no").toString();
-		mav.addObject("no", no);
-		mav.setViewName("/member/detail");
-		return mav;
-	}
-	// 상세보기 끝
-
-	// 전체 목록 보기 시작
-	@RequestMapping(value = "/list")
-	public ModelAndView list(@RequestParam Map<String, Object> map) {
-		List<Map<String, Object>> list = this.memberService.list(map);
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("data", list);
-		mav.setViewName("/member/list");
-		return mav;
-	}
-	// 전체 목록 보기 끝
-
-	// 인덱스 페이지 시작
 	@RequestMapping(value = "/")
-	public ModelAndView index() {
+	public ModelAndView index(@RequestParam Map<String, Object> map) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/index");
 		return mav;
 	}
-	// 인덱스 페이지 끝
-	///////////////////////////////////////////////// 참고용 코드 끝
-	// ///////////////////////////////////////////////////
-
+	
 	// 로그인 시작
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login(@RequestParam Map<String, Object> map) {
@@ -220,14 +173,14 @@ public class MemberController {
 		mav.setViewName("/member/ind/uA");
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/sA")
 	public ModelAndView joinAg_sA() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/member/ind/sA");
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/pA")
 	public ModelAndView joinAg_pA() {
 		ModelAndView mav = new ModelAndView();
@@ -235,7 +188,7 @@ public class MemberController {
 		return mav;
 	}
 	// 회원가입 이용약관 페이지 끝
-	
+
 	// 호텔 안내에 관한 페이지 시작
 	@RequestMapping(value = "/info/intro")
 	public ModelAndView hotelInfo_intro() {
@@ -243,14 +196,14 @@ public class MemberController {
 		mav.setViewName("/hotelInfo/hotelInfo");
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/info/contact")
 	public ModelAndView hotelInfo_contact() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/hotelInfo/contact");
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/info/direction")
 	public ModelAndView hotelInfo_direction() {
 		ModelAndView mav = new ModelAndView();
@@ -258,4 +211,53 @@ public class MemberController {
 		return mav;
 	}
 	// 호텔 안내에 관한 페이지 끝
+
+	// 어드민 페이지 ( 회원 전체 관리 페이지 ) 시작
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	public ModelAndView admin(@RequestParam Map<String, Object> map, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		String isAdmin = (String)session.getAttribute("isAdmin");
+		if(isAdmin == null) {
+			// 어드민 계정으로 로그인 상태가 아니라면 
+			mav.setViewName("/admin/main");
+		} else {
+			// 어드민 계정으로 로그인 상태라면
+			mav.setViewName("/admin/realMain");
+		}
+		return mav;
+	}
+	
+	@RequestMapping(value = "/adminProc", method = RequestMethod.POST)
+	public ModelAndView adminLogin(@RequestParam Map<String, Object> map, HttpSession session) {
+		Map<String, Object> adminLogin = this.memberService.aLogin(map);
+		ModelAndView mav = new ModelAndView();
+		if (adminLogin == null) {
+			mav.setViewName("redirect:/admin");
+		} else {
+			String aid = adminLogin.get("aid").toString();
+			session.setAttribute("isAdmin", aid);
+			mav.addObject("isAdmin", "yes");
+			mav.setViewName("redirect:/admin");
+			// 어드민 로그인 성공시 어드민 페이지로 리다이렉트
+		}
+		return mav;
+	}
+	
+	@RequestMapping(value = "/admin/memberList")
+	public ModelAndView admin_(@RequestParam Map<String, Object> map, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		String isAdmin = (String)session.getAttribute("isAdmin");
+		if(isAdmin == null) {
+			// 어드민 계정으로 로그인 상태가 아니라면 
+			mav.setViewName("redirect:/admin");
+		} else {
+			// 어드민 계정으로 로그인 상태라면
+			List<Map<String, Object>> memList = this.memberService.memList(map);
+			mav.addObject("member",memList);
+			mav.setViewName("/admin/memberList");
+		}
+		return mav;
+	}
+	
+	// 어드민 페이지 끝
 }

@@ -3,29 +3,6 @@
 
 <mapper namespace="member">
 
-	<insert id="insert" parameterType="hashMap"
-		useGeneratedKeys="true" keyProperty="member_id">
-			<![CDATA[
-			insert into memList (uId, uPw, uName, uEmail)
-			values
-			(#{uId}, #{uPw}, #{uName}, #{uEmail})
-			]]>
-	</insert>
-
-	<select id="select_detail" parameterType="hashMap"
-		resultType="hashMap">
-			 <![CDATA[
-			 select uId, uPw, uName, uEmail from memList where no = #{no}
-			 ]]>
-	</select>
-
-	<select id="select_list" parameterType="hashMap"
-		resultType="hashMap">
-			 <![CDATA[
-			 select * from memList order by no desc
-			 ]]>
-	</select>
-
 	<!-- 로그인을 위한 사용자 아이디 및 패스워드 일치 조회 시작 -->
 	<select id="login" parameterType="hashMap" resultType="hashMap">
 		<![CDATA[
@@ -86,4 +63,24 @@
 		]]>
 	</select>
 	<!-- 아이디 조회 끝 -->
+	
+	<!-- 관리자 로그인을 위한 사용자 아이디 및 패스워드 일치 조회 시작 -->
+	<select id="admin_login" parameterType="hashMap" resultType="hashMap">
+		<![CDATA[
+		select *
+		from adminAcc
+		where aid = #{aid}
+		and apw = #{apw}
+		]]>
+	</select>
+	<!-- 로그인을 위한 사용자 아이디 및 패스워드 일치 조회 끝 -->
+	
+	<!-- 멤버 리스트 조회 시작 -->
+	<select id="member_list" parameterType="hashMap"
+		resultType="hashMap">
+			 <![CDATA[
+			 select * from memberList order by no desc
+			 ]]>
+	</select>
+		<!-- 멤버 리스트 조회 끝 -->
 </mapper>

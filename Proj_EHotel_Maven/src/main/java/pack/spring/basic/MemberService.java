@@ -3,15 +3,7 @@ package pack.spring.basic;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpSession;
-
 public interface MemberService {
-
-	String create(Map<String, Object> map);
-
-	Map<String, Object> detail(Map<String, Object> map);
-
-	List<Map<String, Object>> list(Map<String, Object> map);
 
 	String index( );
 	
@@ -29,4 +21,11 @@ public interface MemberService {
 	int joinProc(Map<String, Object> map);
 	int inqId(Map<String, Object> map);
 	// 회원가입 끝
+	
+	// 어드민 로그인 시작
+	Map<String, Object> aLogin(Map<String, Object> map);
+	// 어드민 로그인 끝
+	
+	List<Map<String, Object>> memList(Map<String, Object> map);
+
 }
