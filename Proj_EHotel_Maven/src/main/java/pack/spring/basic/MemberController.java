@@ -76,6 +76,10 @@ public class MemberController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login(@RequestParam Map<String, Object> map) {
 		ModelAndView mav = new ModelAndView();
+		if(map.get("isOK") != null) {
+			String isOK = map.get("isOK").toString();			
+			mav.addObject("isOK", isOK);
+		}
 		mav.setViewName("member/login");
 		return mav;
 	}
@@ -90,7 +94,6 @@ public class MemberController {
 			mav.setViewName("redirect:/login");
 		} else {
 			String uid = loginMap.get("uid").toString();
-			mav.addObject("data", loginMap);
 			session.setAttribute("isLogin", uid);
 			mav.setViewName("/index");
 		}
@@ -112,11 +115,17 @@ public class MemberController {
 	// 마이페이지 시작
 	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
 	public ModelAndView mypage(@RequestParam Map<String, Object> map, HttpSession session) {
-		map.put("sKey", (String) session.getAttribute("isLogin"));
-		Map<String, Object> myPageMap = this.memberService.mypage(map);
+		String sKey = (String) session.getAttribute("isLogin");
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("data", myPageMap);
-		mav.setViewName("/member/userEdit");
+		if (sKey == null) {
+			// 잘못된 접근
+			mav.setViewName("redirect:/");
+		} else {
+			map.put("sKey", sKey);
+			Map<String, Object> myPageMap = this.memberService.mypage(map);
+			mav.addObject("data", myPageMap);
+			mav.setViewName("/member/userEdit");			
+		}
 		return mav;
 	}
 
@@ -203,5 +212,8 @@ public class MemberController {
 		return mav;
 	}
 	// 회원가입 끝
+	// +++
+	// 회원가입 이용약관 페이지 시작
 	
+	// 회원가입 이용약관 페이지 끝
 }

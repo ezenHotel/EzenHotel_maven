@@ -22,10 +22,9 @@
 
 			<!-- 실제 작업 영역 시작 -->
 			<div id="contents" class="loginDiv">
-${isOK}
 				<form id="loginFrm" name="loginFrm">
 					<c:choose>
-						<c:when test="${isOK}!=null">
+						<c:when test="${isOK!=null}">
 							<div id="err" style="color: red; padding-bottom: 10px;">
 								일치하는 회원 정보 없음<br> 아이디 혹은 비밀번호를 확인해주세요.
 							</div>
