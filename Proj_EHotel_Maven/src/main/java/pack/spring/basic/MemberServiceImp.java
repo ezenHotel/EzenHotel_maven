@@ -60,19 +60,5 @@ public class MemberServiceImp implements MemberService {
 		return isExist;
 	}
 	// 회원가입 끝
-	
-	// 어드민 로그인 시작
-	@Override
-	public Map<String, Object> aLogin(Map<String, Object> map) {
-		return this.memberDao.aLogin(map);
-	}
-	// 어드민 로그인 끝
-	
-	// 멤버 리스트 시작
-	@Override
-	public List<Map<String, Object>> memList(Map<String, Object> map) {
-		return this.memberDao.memList(map);
-	}
-	// 멤버 리스트 끝
 
 }
