@@ -16,7 +16,7 @@
 		<header id="header" class="dFlex">
 			<div id="leftGNB">
 				<ul class="dFlex">
-					<li class="bar" onclick="location.href='/hotelInfo/hotelInfo.jsp'">호텔소개</li>
+					<li class="bar" onclick="location.href='/info/intro'">호텔소개</li>
 					<li class="bar" onclick="location.href='/bbs/list.jsp'">고객센터</li>
 				</ul>
 			</div>
@@ -50,9 +50,9 @@
 
 		<div id="floatMenu">
 			<ul>
-				<li onclick="location.href='/hotelInfo/wayToCome.jsp'"><span>오시는길</span>
+				<li onclick="location.href='/info/direction'"><span>오시는길</span>
 					<i class="fa-solid fa-location-dot"></i></li>
-				<li onclick="location.href='/hotelInfo/contact.jsp'"><span>연락처</span>
+				<li onclick="location.href='/info/contact'"><span>연락처</span>
 					<i class="fa-solid fa-phone"></i></li>
 				<li onclick="location.href='https://www.tistory.com'"><span>블로그</span>
 					<i class="fa-solid fa-blog"></i></li>

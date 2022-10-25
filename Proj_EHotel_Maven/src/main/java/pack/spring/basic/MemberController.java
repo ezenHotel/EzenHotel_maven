@@ -235,4 +235,27 @@ public class MemberController {
 		return mav;
 	}
 	// 회원가입 이용약관 페이지 끝
+	
+	// 호텔 안내에 관한 페이지 시작
+	@RequestMapping(value = "/info/intro")
+	public ModelAndView hotelInfo_intro() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/hotelInfo/hotelInfo");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/info/contact")
+	public ModelAndView hotelInfo_contact() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/hotelInfo/contact");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/info/direction")
+	public ModelAndView hotelInfo_direction() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/hotelInfo/wayToCome");
+		return mav;
+	}
+	// 호텔 안내에 관한 페이지 끝
 }
