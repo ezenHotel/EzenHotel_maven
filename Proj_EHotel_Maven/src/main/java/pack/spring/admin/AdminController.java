@@ -109,11 +109,29 @@ public class AdminController {
 			mav.setViewName("/admin/main");
 		} else {
 			// 어드민 계정으로 로그인 상태라면
+			Map<String, Object> detailMap = this.adminService.memDetail(map);
+			mav.addObject("detail", detailMap);
 			mav.setViewName("/admin/detail");
-
 		}
 		return mav;
 	}
 	// 회원 상세 조회 끝
+
+	// 회원 정보 수정 시작
+	@RequestMapping(value = "/detailEditProc", method = RequestMethod.GET)
+	public ModelAndView detailEditProc(@RequestParam Map<String, Object> map, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		String isAdmin = (String) session.getAttribute("isAdmin");
+		if (isAdmin == null) {
+			// 어드민 계정으로 로그인 상태가 아니라면
+			mav.setViewName("/admin/main");
+		} else {
+			// 어드민 계정으로 로그인 상태라면
+			this.adminService.userDetailEdit(map);
+			mav.setViewName("redirect:/memberList/detail?no="+map.get("no"));
+		}
+		return mav;
+	}
+	// 회원 정보 수정 끝
 
 }

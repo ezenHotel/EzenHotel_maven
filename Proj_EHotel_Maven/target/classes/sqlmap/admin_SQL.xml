@@ -32,4 +32,26 @@
 		]]>
 	</delete>
 	<!-- 회원 삭제 끝 -->
+
+	<!-- 멤버 리스트 조회 시작 -->
+	<select id="member_detail" parameterType="hashMap"
+		resultType="hashMap">
+			 <![CDATA[
+			 select * 
+			 from memberList
+			 where no = #{no}
+			 ]]>
+	</select>
+	<!-- 멤버 리스트 조회 끝 -->
+	
+	<!-- 회원 정보 수정 시작 -->
+	<update id="member_edit" parameterType="hashMap">
+		<![CDATA[
+		update memberList
+		set upw=#{upw}, email=#{email}, name=#{name}, gender=#{gender}, country=#{country}, bDate=#{bDate}, contact=#{contact}, zipCode=#{zipCode}, address=#{address}, dAddress=#{dAddress}
+		where no=#{no} 
+		]]>
+	</update>
+	<!-- 회원 정보 수정 끝 -->
+
 </mapper>

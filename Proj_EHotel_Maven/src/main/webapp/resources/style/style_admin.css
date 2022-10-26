@@ -26,7 +26,7 @@ div#adminWrap input {
 	height: 40px;
 }
 
-div#adminWrap input:nth-child(1){
+div#adminWrap input:nth-child(1) {
 	margin-bottom: 10px;
 }
 /* 관리자 페이지 메인화면 끝*/
@@ -70,3 +70,165 @@ div#memberListWrap>table span {
 }
 
 /* 멤버 리스트 페이지 끝 */
+
+/* 멤버 상세 조회 시작 */
+div#memberDetailWrap {
+	width: 900px;
+	margin: 0 auto;
+	font-family: 'Nanum Gothic', sans-serif;
+	/* 	border: 1px solid black; */
+}
+
+div#memberDetailWrap>form#uEditFrm table>caption {
+	text-align: left;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bold;
+	font-size: 24px;
+	color: #d37643;
+	margin-bottom: 10px;
+}
+
+div#memberDetailWrap>form#uEditFrm table>caption i {
+	color: #d37643;
+	margin-right: 10px;
+	margin-left: 2px;
+	font-size: 24px;
+}
+
+div#memberDetailWrap>form#uEditFrm {
+	width: 100%;
+	/* 	border: 1px solid black; */
+}
+
+div#memberDetailWrap>form#uEditFrm table {
+	width: 100%;
+	margin: 50px auto 50px;
+	font-family: 'Nanum Gothic', sans-serif;
+	border-top: 2px solid #744f3b;
+	border-collapse: collapse;
+}
+
+div#memberDetailWrap table th {
+	text-align: left;
+	padding: 22px 20px 20px;
+	background-color: #fafafa;
+	font-size: 14px;
+	border-bottom: 1px solid #eee;
+}
+
+div#memberDetailWrap table td {
+	border-bottom: 1px solid #eee;
+	padding: 0 20px;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+div#memberDetailWrap table td input, div#memberDetailWrap table td select {
+	border: 1px solid #b2b2b2;
+	border-radius: 2px;
+	height: 35px;
+	padding: 0 6px;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+div#memberDetailWrap table td.td01 input, div#memberDetailWrap table td.td03 select
+	{
+	width: 200px;
+}
+
+div#memberDetailWrap table td.td02 input {
+	transform: translateY(4px);
+	margin: 0 7px;
+	width: 16px;
+	height: 16px;
+	border: 1px solid black;
+}
+
+div#memberDetailWrap table td.td01 button, div#memberDetailWrap table td.td07 button
+	{
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	height: 35px;
+	padding: 0 20px;
+	cursor: pointer;
+	margin-left: 4px;
+	cursor: pointer;
+}
+
+div#memberDetailWrap table td.td01 button:hover, div#memberDetailWrap table td.td07 button:hover
+	{
+	background-color: #ddd;
+}
+
+div#memberDetailWrap table td select {
+	font-size: 14px;
+}
+
+div#memberDetailWrap table td.td04 select:not(select#birthYear) {
+	margin-left: 14px;
+}
+
+div#memberDetailWrap table td.td04 select {
+	margin-right: 2px;
+}
+
+div#memberDetailWrap table td.td05 select, div#memberDetailWrap table td.td05 input
+	{
+	width: 80px;
+}
+
+div#memberDetailWrap table td.td06 input {
+	width: 180px;
+}
+
+div#memberDetailWrap table td.td06 select {
+	margin-left: 4px;
+}
+
+div#memberDetailWrap table td.td07 {
+	padding: 12px 20px;
+}
+
+div#memberDetailWrap table td.td07 input:not(:nth-last-child(2)) {
+	margin-bottom: 10px;
+}
+
+div#memberDetailWrap table td.td07 input:not(:nth-child(2)) {
+	width: 510px;
+}
+
+div#memberDetailWrap table td.td08 {
+	border: none;
+	text-align: right;
+	padding: 0;
+}
+
+div#memberDetailWrap table td.td08 button:disabled {
+	border: none;
+	background-color: #eee;
+	border-radius: 2px;
+	padding: 10px 35px;
+	margin-top: 15px;
+	color: #aaa;
+	font-size: 18px;
+	cursor: default;
+}
+
+div#memberDetailWrap table td.td08 button:disabled:hover {
+	background-color: #eee;
+}
+
+div#memberDetailWrap table td.td08 button {
+	border: none;
+	background-color: #d37643;
+	border-radius: 2px;
+	padding: 10px 35px;
+	cursor: pointer;
+	margin-top: 15px;
+	color: #fcf2dc;
+	font-size: 18px;
+}
+
+div#memberDetailWrap table td.td08 button:hover {
+	background-color: #744f3b;
+}
+/* 멤버 상세 조회 끝 */

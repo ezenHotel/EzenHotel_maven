@@ -31,4 +31,16 @@ public class AdminDao {
 		return this.sqlSessionTemplate.delete("admin.member_del", map);
 	}
 	// 멤버 삭제 끝
+	
+	// 멤버 상세 조회 시작
+	public Map<String, Object> memDetail(Map<String, Object> map) {
+		return this.sqlSessionTemplate.selectOne("admin.member_detail", map);
+	}
+	// 멤버 상세 조회 끝
+	
+	// 회원 정보 수정 시작
+	public Map<String, Object> userDetailEdit(Map<String, Object> map) {
+		return this.sqlSessionTemplate.selectOne("admin.member_edit", map);
+	}
+	// 회원 정보 수정 끝
 }
