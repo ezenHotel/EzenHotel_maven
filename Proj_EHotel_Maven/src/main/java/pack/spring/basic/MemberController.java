@@ -106,6 +106,20 @@ public class MemberController {
 		mav.setViewName("/member/pwEditProc");
 		return mav;
 	}
+	
+	@RequestMapping(value = "/withdrawal", method = RequestMethod.GET)
+	public ModelAndView withdrawal(@RequestParam Map<String, Object> map, HttpSession session) {
+		map.put("sKey", (String) session.getAttribute("isLogin"));
+		int isDel = this.memberService.withdrawal(map);
+		ModelAndView mav = new ModelAndView();
+		if (isDel > 0) {
+			mav.setViewName("redirect:/logout");
+		} else {
+			mav.setViewName("redirect:/mypage");
+		}
+		return mav;
+	}
+	
 	// 마이페이지 끝
 
 	// 회원가입 시작

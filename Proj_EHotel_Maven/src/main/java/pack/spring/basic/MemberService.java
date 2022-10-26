@@ -15,6 +15,7 @@ public interface MemberService {
 	Map<String, Object> mypage(Map<String, Object> map);
 	Map<String, Object> mypageEdit(Map<String, Object> map);
 	Map<String, Object> pwEdit(Map<String, Object> map);
+	int withdrawal(Map<String, Object> map);
 	// 마이페이지 끝
 
 	// 회원가입 시작

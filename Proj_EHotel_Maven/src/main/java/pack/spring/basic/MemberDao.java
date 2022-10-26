@@ -32,6 +32,10 @@ public class MemberDao {
 	public Map<String, Object> pwEdit(Map<String, Object> map) {
 		return this.sqlSessionTemplate.selectOne("member.pw_edit", map);
 	}
+	
+	public int withdrawal(Map<String, Object> map) {
+		return this.sqlSessionTemplate.delete("member.withdrawal", map);
+	}
 	// 마이 페이지 끝
 
 	// 회원가입 시작

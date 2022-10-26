@@ -115,6 +115,7 @@
 						<td colspan="2" class="td08">
 							<button id="userInfoEditBtn" type="button" disabled>변경사항
 								저장</button>
+								<button id="withdrawalBtn" type="button">회원 탈퇴</button>
 						</td>
 					</tr>
 				</tbody>

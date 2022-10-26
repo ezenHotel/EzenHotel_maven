@@ -41,6 +41,11 @@ public class MemberServiceImp implements MemberService {
 	public Map<String, Object> pwEdit(Map<String, Object> map) {
 		return this.memberDao.pwEdit(map);
 	}
+	
+	@Override
+	public int withdrawal(Map<String, Object> map) {
+		return this.memberDao.withdrawal(map);
+	}
 	// 마이페이지 끝
 
 	// 회원가입 시작
