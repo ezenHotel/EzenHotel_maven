@@ -11,15 +11,11 @@ $(document).ready(function() {
 		if (del) {
 
 			console.log(chkdNums);
-			
-			location.href="/memberDel?chkdNums=" + chkdNums
+
+			location.href = "/memberDel?chkdNums=" + chkdNums
 
 		}
 
-	});
-	
-	$("div#memberListWrap #detailBtn").click(function(){
-		
 	});
 
 })

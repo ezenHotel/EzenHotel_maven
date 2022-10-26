@@ -38,8 +38,9 @@
 
 			</c:forEach>
 			<tr>
-				<td colspan="5">
-					<button type="button" id="delBtn">삭제하기</button>
+				<td colspan="6">
+					<button type="button" id="mainBtn"  onclick="location='/admin'">메인으로</button>
+					<button type="button" id="delBtn">선택 항목 삭제</button>
 				</td>
 			</tr>
 		</table>

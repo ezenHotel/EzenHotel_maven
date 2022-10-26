@@ -9,11 +9,11 @@
 <title>Insert title here</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- <link rel="stylesheet" href="/resources/style/style_userJoin.css">
-<script src="/resources/script/script_userLogin.js"></script> -->
+<link rel="stylesheet" href="/resources/style/style_admin.css">
+<script src="/resources/script/script_admin.js"></script>
 </head>
 <body>
-	<div id="wrap" class="adminWrap">
+	<div id="adminWrap" class="">
 
 		<main id="main" class="dFlex">
 

@@ -2,3 +2,71 @@
 
 @import url("/resources/style/style_Reset.css");
 
+/* 관리자 페이지 메인화면 시작*/
+div#adminWrap {
+	width: 300px;
+	margin: 100px auto;
+	border: 2px solid #ddd;
+	padding: 10px;
+	text-align: center;
+}
+
+div#adminWrap button {
+	background-color: #eee;
+	border: 2px solid #ddd;
+	padding: 5px 40px;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+div#adminWrap input {
+	border: 2px solid #ddd;
+	width: 200px;
+	padding: 10px;
+	height: 40px;
+}
+
+div#adminWrap input:nth-child(1){
+	margin-bottom: 10px;
+}
+/* 관리자 페이지 메인화면 끝*/
+
+/* 멤버 리스트 페이지 시작 */
+div#memberListWrap {
+	width: 500px;
+	margin: 100px auto;
+	border: 2px solid #ddd;
+}
+
+div#memberListWrap>table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+div#memberListWrap>table th {
+	background-color: #eee;
+	text-align: center;
+}
+
+div#memberListWrap>table td, div#memberListWrap>table th {
+	padding: 5px;
+	border-bottom: 1px solid #eee;
+	text-align: center;
+}
+
+div#memberListWrap>table td:not(:nth-last-child(1)) {
+	border-right: 1px solid #eee;
+}
+
+div#memberListWrap>table button {
+	background-color: #eee;
+	border: 2px solid #ddd;
+	padding: 5px 20px;
+	font-weight: bold;
+}
+
+div#memberListWrap>table span {
+	cursor: pointer;
+}
+
+/* 멤버 리스트 페이지 끝 */

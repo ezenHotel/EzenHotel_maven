@@ -34,6 +34,7 @@ public class AdminController {
 		return mav;
 	}
 
+	// 어드민 로그인 시작
 	@RequestMapping(value = "/adminProc", method = RequestMethod.POST)
 	public ModelAndView adminLogin(@RequestParam Map<String, Object> map, HttpSession session) {
 		Map<String, Object> adminLogin = this.adminService.aLogin(map);
@@ -49,6 +50,18 @@ public class AdminController {
 		}
 		return mav;
 	}
+	// 어드민 로그인 끝
+
+	// 어드민 로그아웃 시작
+	@RequestMapping("/adminOut")
+	public ModelAndView admin_logout(@RequestParam Map<String, Object> map, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		session.invalidate();
+		mav.setViewName("redirect:/admin");
+
+		return mav;
+	}
+	// 어드민 로그아웃 끝
 
 	// 어드민 페이지 ( 회원 전체 관리 페이지 ) 시작
 	@RequestMapping(value = "/admin/memberList")
@@ -85,5 +98,22 @@ public class AdminController {
 		return mav;
 	}
 	// 회원 삭제 끝
+
+	// 회원 상세 조회 시작
+	@RequestMapping(value = "/memberList/detail", method = RequestMethod.GET)
+	public ModelAndView admin_memberDetail(@RequestParam Map<String, Object> map, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		String isAdmin = (String) session.getAttribute("isAdmin");
+		if (isAdmin == null) {
+			// 어드민 계정으로 로그인 상태가 아니라면
+			mav.setViewName("/admin/main");
+		} else {
+			// 어드민 계정으로 로그인 상태라면
+			mav.setViewName("/admin/detail");
+
+		}
+		return mav;
+	}
+	// 회원 상세 조회 끝
 
 }
