@@ -1,4 +1,4 @@
-package pack.spring.basic.member;
+package pack.spring.member;
 
 import java.util.List;
 import java.util.Map;

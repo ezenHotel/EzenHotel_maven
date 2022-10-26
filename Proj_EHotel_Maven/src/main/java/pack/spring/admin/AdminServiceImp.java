@@ -1,4 +1,4 @@
-package pack.spring.basic.admin;
+package pack.spring.admin;
 
 import java.util.List;
 import java.util.Map;

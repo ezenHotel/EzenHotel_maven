@@ -22,6 +22,7 @@ acterEncoding=UTF-8" />
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations"
 			value="classpath:/sqlmap/**/*_SQL.xml" />
+			
 	</bean>
 	<bean id="sqlSessionTemplate"
 		class="org.mybatis.spring.SqlSessionTemplate">
