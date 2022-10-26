@@ -28,4 +28,7 @@ public class AdminServiceImp implements AdminService {
 	}
 	// 멤버 리스트 끝
 
+	public int memDel(Map<String, Object> map) {
+		return this.adminDao.memDel(map);
+	}
 }

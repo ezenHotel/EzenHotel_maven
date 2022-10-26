@@ -1,5 +1,7 @@
 package pack.spring.admin;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
@@ -21,9 +23,9 @@ public class AdminController {
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView admin(@RequestParam Map<String, Object> map, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		String isAdmin = (String)session.getAttribute("isAdmin");
-		if(isAdmin == null) {
-			// 어드민 계정으로 로그인 상태가 아니라면 
+		String isAdmin = (String) session.getAttribute("isAdmin");
+		if (isAdmin == null) {
+			// 어드민 계정으로 로그인 상태가 아니라면
 			mav.setViewName("/admin/main");
 		} else {
 			// 어드민 계정으로 로그인 상태라면
@@ -31,7 +33,7 @@ public class AdminController {
 		}
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/adminProc", method = RequestMethod.POST)
 	public ModelAndView adminLogin(@RequestParam Map<String, Object> map, HttpSession session) {
 		Map<String, Object> adminLogin = this.adminService.aLogin(map);
@@ -47,24 +49,41 @@ public class AdminController {
 		}
 		return mav;
 	}
-	
+
 	// 어드민 페이지 ( 회원 전체 관리 페이지 ) 시작
 	@RequestMapping(value = "/admin/memberList")
-	public ModelAndView admin_(@RequestParam Map<String, Object> map, HttpSession session) {
+	public ModelAndView admin_memberList(@RequestParam Map<String, Object> map, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		String isAdmin = (String)session.getAttribute("isAdmin");
-		if(isAdmin == null) {
-			// 어드민 계정으로 로그인 상태가 아니라면 
+		String isAdmin = (String) session.getAttribute("isAdmin");
+		if (isAdmin == null) {
+			// 어드민 계정으로 로그인 상태가 아니라면
 			mav.setViewName("redirect:/admin");
 		} else {
 			// 어드민 계정으로 로그인 상태라면
 			List<Map<String, Object>> memList = this.adminService.memList(map);
-			mav.addObject("member",memList);
+			mav.addObject("member", memList);
 			mav.setViewName("/admin/memberList");
 		}
 		return mav;
 	}
 	// 어드민 페이지 ( 회원 전체 관리 페이지 ) 끝
-	
-	
+
+	// 회원 삭제 시작
+	@RequestMapping(value = "/memberDel", method = RequestMethod.GET)
+	public ModelAndView admin_memberDel(@RequestParam Map<String, Object> map) {
+		ModelAndView mav = new ModelAndView();
+
+		String nums = map.get("chkdNums").toString();
+		ArrayList<String> numList = new ArrayList<>(Arrays.asList(nums.split("\\s*,\\s*")));
+
+		for (String no : numList) {
+			map.put("no", no);
+			this.adminService.memDel(map);
+		}
+		mav.setViewName("redirect:/admin/memberList");
+
+		return mav;
+	}
+	// 회원 삭제 끝
+
 }

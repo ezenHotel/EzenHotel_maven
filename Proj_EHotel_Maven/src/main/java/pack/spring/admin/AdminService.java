@@ -11,4 +11,6 @@ public interface AdminService {
 	
 	List<Map<String, Object>> memList(Map<String, Object> map);
 
+	int memDel(Map<String, Object> map);
+
 }

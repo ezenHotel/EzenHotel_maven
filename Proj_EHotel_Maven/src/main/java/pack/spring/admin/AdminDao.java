@@ -25,4 +25,10 @@ public class AdminDao {
 		return this.sqlSessionTemplate.selectList("admin.member_list", map);
 	}
 	// 어드민 페이지 멤버 목록 조회 끝
+	
+	// 멤버 삭제 시작
+	public int memDel(Map<String, Object> map) {
+		return this.sqlSessionTemplate.delete("admin.member_del", map);
+	}
+	// 멤버 삭제 끝
 }

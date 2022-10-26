@@ -4,7 +4,8 @@
 <mapper namespace="admin">
 
 	<!-- 관리자 로그인을 위한 사용자 아이디 및 패스워드 일치 조회 시작 -->
-	<select id="admin_login" parameterType="hashMap" resultType="hashMap">
+	<select id="admin_login" parameterType="hashMap"
+		resultType="hashMap">
 		<![CDATA[
 		select *
 		from adminAcc
@@ -13,7 +14,7 @@
 		]]>
 	</select>
 	<!-- 로그인을 위한 사용자 아이디 및 패스워드 일치 조회 끝 -->
-	
+
 	<!-- 멤버 리스트 조회 시작 -->
 	<select id="member_list" parameterType="hashMap"
 		resultType="hashMap">
@@ -21,6 +22,14 @@
 			 select * from memberList order by no desc
 			 ]]>
 	</select>
-		<!-- 멤버 리스트 조회 끝 -->
-		
+	<!-- 멤버 리스트 조회 끝 -->
+
+	<!-- 회원 삭제 시작 -->
+	<delete id="member_del" parameterType="hashMap">
+		<![CDATA[
+		delete from memberList
+		where no=#{no} 
+		]]>
+	</delete>
+	<!-- 회원 삭제 끝 -->
 </mapper>
