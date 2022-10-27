@@ -1,0 +1,467 @@
+@charset "UTF-8";
+@import url("/resources/style/style_Reset.css");
+
+/*예약 화면 공통*/
+
+main#main {
+	width: 80%;
+	margin: 10px auto 20px;
+}
+
+main#main table caption {
+	font-size: 13px;
+	text-align: right;
+	margin: 8px;
+}
+
+
+
+/* ///////////////// reserve.jsp 시작 /////////////////// */
+
+/* ====== 호텔 메뉴 선택 Area ====== */
+main#main>h1{
+	width: 80%;
+	padding: 30px;
+	margin: 40px auto 20px;
+}
+
+main#main>div#hotelMenu {
+	width: 80%;
+	margin: 10px auto;
+}
+
+main#main>div#hotelMenu ul {
+	width: 100%;
+	background-color : #eeeeee; 
+	/* border: 1px solid red; */
+	/* justify-content: space-around; */
+}
+
+main#main>div#hotelMenu ul>li {
+	width: 10%;
+	height: 40px;
+	background-color : #eeeeee; 
+	border: 1px solid #fff; 
+	display: inline-block;
+	
+	cursor: pointer;
+}
+
+
+main#main>div#hotelMenu ul>li a {
+	width: 100%;
+	font-size: 13px;
+	font-weight: bold;
+	line-height : 40px;
+	padding-left: 5px;
+	color : #896825;
+	display: inline-block;
+}
+main#main>div#hotelMenu ul>li:hover {
+	color: #fff;
+	background-color : #896825; 
+}
+
+main#main>div#hotelMenu ul>li a:hover {
+	color: #fff;
+}
+
+/* ====== 년/월 표시 및 달력 넘기기 + 'today' 버튼 Area ====== */
+main#main div#nowMonthArea {
+	width: 100%;
+	height: 80px;
+	line-height: 100px;
+}
+
+#main #nowMonthArea div#nowYearMonth {
+	width: 60%;
+	text-align: right;
+}
+
+#main #nowMonthArea div#nowYearMonth b.yearTxt {
+	font-size: 20px;
+}
+
+#main #nowMonthArea div#nowYearMonth b.monthTxt {
+	color : #9e7d3a;
+	font-size: 25px;
+}
+
+#main #nowMonthArea div#nowYearMonth b.ltGtTxt {
+	font-size: 20px;
+}
+
+#main #nowMonthArea div#todayBtn {
+	flex: 1;
+	text-align: left;
+	padding-left: 15px;
+}
+
+#main #nowMonthArea div#todayBtn>input[type=button] {
+	width: 60px;
+	color: #9e7d3a;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 5px;
+	background-color : #f1ece1;
+	border: 2px solid #9e7d3a;
+	border-radius : 4px;
+	
+	cursor: pointer;
+}
+
+div#nowMonthArea div#nowYearMonth a:link b { font-size:9pt; font-weight: bold; font-family:"돋움";color:#000000; text-decoration:none; }
+div#nowMonthArea div#nowYearMonth a:visited b { font-size:9pt; font-weight: bold; font-family:"돋움";color:#000000; text-decoration:none; }
+div#nowMonthArea div#nowYearMonth a:active b { font-size:9pt; font-weight: bold; font-family:"돋움";color:#9e7d3a; text-decoration:none; }
+div#nowMonthArea div#nowYearMonth a:hover b { font-size:9pt; font-weight: bold; font-family:"돋움";color:#9e7d3a;text-decoration:none;}
+
+
+/* ======= 예약 현황 달력 Area ========= */
+table#calResvArea {
+	width: 80%;
+	border-collapse: collapse;
+	border-top : 2px solid #9e7d3a;
+	margin: 10px auto;
+}
+
+table#calResvArea th {
+	height: 28px;
+	color: #333;
+	background-color : #f1ece1;
+}
+
+table#calResvArea th.leftTxt {
+	/* width: 180px; */
+	width: 20%;
+	text-align : left;
+	background-color : #f8f5f0;
+}
+
+table#calResvArea span{
+	padding: 10px;
+	color: #333;
+}
+
+table#calResvArea td {
+	border: 1px solid #f1ece1;
+	color: #333;
+}
+
+table#calResvArea td button.resvBtn {
+	padding: 1.5px 10px;
+	width: 95%;
+	text-align: left;
+	font-size: 12px;
+	color:#fff;
+	background-color:#c6ad79;
+	border: none;
+	border-radius:3px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+table#calResvArea td span.resvTxt {
+	padding: 0 10px;
+	width: 80px;
+	text-align: center;
+	font-size: 12px;
+	margin: 1.5px auto;
+	display: inline-block;
+}
+
+/* ///////////////// reserve.jsp끝 /////////////////// */
+
+
+
+/* ///////////////// reserveInsert.jsp 시작 /////////////////// */
+main#main>p#sessionChk {
+	width: 100%;
+	font-size: 25px;
+	text-align: center;
+	margin: 30px;
+}
+
+main#main table#resvHOrRDet {
+	width: 100%;
+	border-top: 2px solid #c6ad79;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+
+main#main table#resvHOrRDet th {
+	padding: 15px 20px;
+	width: 200px;
+	text-align : left;
+	background-color : #f8f5f0;
+}
+
+main#main table#resvHOrRDet td {
+	padding: 15px 20px;
+	border: 1px solid #f1ece1;
+}
+
+main#main table#resvHOrRDet td span#HorR{
+	color: #333;
+}
+
+main#main table#resvHOrRDet input {
+	padding: 2px 6px;
+	margin: 5px 0;
+}
+main#main table#resvHOrRDet select {
+	padding: 2px 6px;
+	font-size: 15px;
+}
+
+main#main table#resvHOrRDet input#uId{
+	border: 1px solid #ccc;
+	outline: none;
+	width: 80px;
+}
+
+main#main table#resvHOrRDet .phone{
+	border: 1px solid #ccc;
+	width: 90px;
+	height: 27px;
+	outline: none;
+}
+
+table#resvHOrRDet div#roomStyle div.roomTypeList {
+	width: 200px;
+	height: 240px;
+	margin-bottom: 12px;
+	
+	position: relative;
+	
+}
+
+
+table#resvHOrRDet div#roomStyle div.roomTypeList p{
+	width: 100%;
+	text-align: center;
+}
+table#resvHOrRDet div#roomStyle div.roomTypeList p.rPeople{
+	font-size: 13px;
+}
+
+table#resvHOrRDet div#roomStyle div.roomTypeList img {
+	width: 180px;
+	height: 135px;
+	flex: 1;
+}
+
+table#resvHOrRDet div#roomStyle div.roomTypeList button {
+	font-size: 13px;
+	padding: 5px;
+	border: 1px solid #f1ece1;
+	background-color : #f1ece1;
+	margin-top: 5px;
+	
+	position: absolute;
+	left:50%;
+	bottom:10px;
+	transform : translateX(-50%);
+	cursor: pointer;
+}
+
+main#main div#btnArea {
+	text-align: center;
+}
+
+main#main button#resvConfirmBtn{
+	width: 100px;
+	font-size: 20px;
+	padding: 8px;
+	color: #fff;
+	border: 1px solid #4db8bd;
+	background-color : #4db8bd;
+	border-radius : 3px;
+	margin-top: 5px;
+	cursor: pointer;
+	
+	display: inline-block;
+}
+
+main#main button#resvConfirmBtn:hover {
+	background-color : #0d8389;
+}
+
+
+
+/*////////////// 모달 레이어 팝업 시작 //////////////*/
+.contentParts .bbsContents table#bbsGalleryTBL td:hover img{
+	opacity : 0.7;
+}
+
+div#modalBG{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.6);
+	display: none; 
+	
+	position: fixed;
+	top:0;
+	left : 0;
+	
+	z-index: 2;
+}
+
+div#modalBG>div#modalLayer{
+	width: 1000px;
+	height: 500px;
+	
+	padding: 30px;
+	border: 1px solid #000;
+	background-color: #fff;
+	
+	position: absolute;
+	top: 50%;
+	left:50%;
+	transform : translate(-50%, -50%);
+	
+}
+
+div#modalBG>div#modalLayer div#imgArea{
+	/* width: 800px; */
+	margin: 0 auto;
+	
+	overflow: hidden;
+}
+
+div#modalBG span#modalCloseBtn{
+	width: 60px;
+	height: 60px;
+	color: rgba(255,255,255,0.7);
+	font-size: 50px;
+	font-weight: bold;
+	line-height: 46px;
+	text-align: center;
+	/* border: 1px solid rgba(0,0,0,0.7); */
+	border-radius : 50%;
+	
+	cursor: pointer;
+	display: inline-block;
+	
+	position: absolute;
+	right: -100px;
+	top: -100px;
+	
+	transition : all .7s;
+	user-select : none;
+}
+
+div#modalBG span#modalCloseBtn:hover{
+	color:rgba(255,255,255,0.85);
+	/* border: 1px solid rgba(0,0,0,0.7); */
+	background-color:rgba(0,0,0,0.7);
+}
+
+div#modalBG>div#modalLayer h3#artSubject,
+div#modalBG>div#modalLayer p#artistInfoartistInfo {
+	margin: 6px;
+}
+
+
+/*////////////// 모달 레이어 팝업 끝 //////////////*/
+
+
+
+/* ///////////////// reserveConfirm.jsp 시작 /////////////////// */
+main#main div#divArea {
+	width: 80%;
+	margin: 0 auto;
+}
+main#main div#ResvTermBtnArea{
+	width: 500px;
+	height: 60px;
+	margin: -20px 0 20px;
+}
+#main #ResvTermBtnArea div#pastTermBtn,
+#main #ResvTermBtnArea div#nowTermBtn {
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 37px;
+	color: #9e7d3a;
+	border: 1px solid #9e7d3a;
+	background-color: #fff;
+	margin: 10px;
+	display : inline-block;
+	
+	cursor: pointer;
+	flex: 1;
+}
+
+#main #ResvTermBtnArea div#nowTermBtn {
+	background-color: #ca7a49;
+	color: #eee;
+}
+
+main#main h2 {
+	padding: 0 0 3px 20px;
+}
+
+main#main button.resvDelBtn {
+	width: 90px;
+	font-size: 15px;
+	padding: 2px 0px;
+	color: #fff;
+	border: 1px solid #4db8bd;
+	border-radius:5px;
+	background-color : #4db8bd;
+	
+	transform: translate(260px, -20px);
+	display: inline-block;
+}
+
+main#main hr{
+	border: 1px solid #ddd;
+	margin: 20px 0;
+}
+
+#main div#noResev {
+	padding: 80px;
+	height: 600px;
+}
+
+#main div.myResvList>div.resvImgArea {
+	width: 350px;
+}
+
+#main div.myResvList>div.resvImgArea>img {
+	cursor: pointer;
+}
+
+#main div.myResvList>div.myResvInfo {
+	margin-left: 30px;
+}
+
+#main div.myResvList>div.myResvInfo table{
+	width: 400px;
+	border-collapse: collapse;
+	transform: translateY(-16px);
+}
+#main div.myResvList>div.myResvInfo th{
+	height: 30px;
+	text-align: left;
+	border-bottom: 1px solid #eee;
+}
+
+#main div.myResvList>div.myResvInfo th.thLine{
+	height: 55px;
+}
+
+#main div.myResvList>div.myResvInfo td {
+	width: 300px;
+	border-bottom: 1px solid #eee;
+}
+
+
+/* ///////////// 시작 /////////////// */
+/* ///////////// 끝 /////////////// */
+
+
+/* 시작 */
+/* 끝 */
+
