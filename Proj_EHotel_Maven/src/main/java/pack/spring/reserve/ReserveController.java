@@ -22,7 +22,6 @@ public class ReserveController {
 	@Autowired
 	ReserveService ReserveService;
 	
-	
 	// reserve.jsp 예약 현황에서 '호텔 리스트'와 선택된 '호텔의 객실 리스트' 조회
 	@RequestMapping(value="/resvHome", method=RequestMethod.GET)
 	public ModelAndView sel_resvHome(@RequestParam Map<String, Object> map) {
@@ -34,13 +33,22 @@ public class ReserveController {
 		System.out.println("map : "+map+"============");
 		
 		// '호텔 리스트' 조회
-		List<Map<String, Object>> HList = this.ReserveService.selHotelList();
+		List<Map<String, Object>> HList = this.ReserveService.selHotelList(map);
+		// 선택된 '호텔의 객실 리스트' 조회
+		List<Map<String, Object>> RList = this.ReserveService.selRoomList(map);
 		
 		
+		String rCode = "";		// 객실 코드
+		int rCnt = RList.size();	// 선택된 호텔의 객실 수
+		
+		
+		 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("HList", HList);
+		mav.addObject("RList", RList);
 		
 		System.out.println("HList : "+HList+"============");
+		System.out.println("RList : "+RList+"============");
 		
 		String hCode = map.get("hCode").toString();
 		
@@ -51,44 +59,25 @@ public class ReserveController {
 		return mav;
 		
 	}
-
-	@RequestMapping(value="/resvRoomList")
-	 public @ResponseBody List<RoomInfoDTO> mtd_resvRoomList(@RequestParam("hCode") String hCode){		 
-		 
-		 System.out.println("컨트롤러 resvRoomList 입장");
-		 
-		 List<RoomInfoDTO> roomList = ReserveService.selRoomList(hCode);
-		 System.out.println("List<RoomInfoDTO> : "+roomList);
-		 
-		return roomList;
-	}
 	
 	@ResponseBody
 	@RequestMapping(value="/resvRoomCnt", method=RequestMethod.GET)
-	public Map<String, Object> mtd_resvRoomCnt(@RequestParam String hCode, String rCode, String resev_start) {
-	    Map<String, Object> map = new HashMap<String, Object>();
-	    
-	    System.out.println("컨트롤러 resvRoomCnt 입장");
-	    System.out.println(rCode + " / " + resev_start);
+	public Map<String, String> mtd_resvRoomCnt(@RequestBody String rCode, String resev_start) {
+	    Map<String, String> map = new HashMap<String, String>();
 	    
 	    // 선택된 호텔 객실들의 예약 건이 있는지 조회(예약 가능 잔여 객실 추출 시 필요)
- 		
-	    String ResvRCnt = this.ReserveService.selResvRoomCnt(rCode, resev_start);		// 객실 별 잔여객실 수 
- 		System.out.println("ResvRCnt : " + ResvRCnt);
+ 		Map<String, Object> ResvRCntMap = new HashMap<String, Object>();
+		ResvRCntMap.put("resev_start", resev_start);
+		ResvRCntMap.put("rCode", rCode);
+ 		String ResvRCnt = this.ReserveService.selResvRoomCnt(ResvRCntMap);		// 객실 별 잔여객실 수 
  		
  		// 선택된 호텔 객실들의 '총' 객실 수 조회
- 		//Map<String, Object> TotRCntMap = new HashMap<String, Object>();
- 		//TotRCntMap.put("rCode", rCode);
- 		String TotRCnt = this.ReserveService.selTotRoomCnt(rCode);
- 		System.out.println("TotRCnt : " + TotRCnt);
+ 		Map<String, Object> TotRCntMap = new HashMap<String, Object>();
+ 		TotRCntMap.put("rCode", rCode);
+ 		String TotRCnt = this.ReserveService.selTotRoomCnt(TotRCntMap);
 	    
- 		// 예약 가능 객실 건수
  		map.put("resvCnt", ResvRCnt);
- 		// 총 객실 수
  		map.put("totCnt", TotRCnt);
- 		map.put("rCode", rCode);
- 		map.put("resev_start", resev_start);
- 		map.put("hCode", hCode);
 		
 	    return map;
 	}

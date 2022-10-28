@@ -47,12 +47,5 @@ public class MemberDao {
 		return this.sqlSessionTemplate.selectOne("member.inqId", map);
 	}
 	// 회원가입 끝
-	
-	
-	// reserve.jsp 예약 현황의 호텔 리스트 조회
-	public List<Map<String, Object>> selHotelList() {
-		
-		return this.sqlSessionTemplate.selectList("reserve.selHotel_List");
-	}
 
 }
