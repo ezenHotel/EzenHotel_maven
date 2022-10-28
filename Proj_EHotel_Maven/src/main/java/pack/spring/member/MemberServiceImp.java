@@ -65,5 +65,13 @@ public class MemberServiceImp implements MemberService {
 		return isExist;
 	}
 	// 회원가입 끝
+	
+	// '예약하기' 페이지 호텔 리스트 조회
+	@Override
+	public List<Map<String, Object>> selHotelList() {
+		
+		
+		return this.memberDao.selHotelList();
+	}
 
 }

@@ -61,17 +61,15 @@
 		            	<h5>호텔 또는 리조트</h5>
 		            	<select id="hotelName">
 		            		<option value="">----- 선택 -----</option>
-<%-- 							<%
-							// 호텔 or 리조트 리스트(드롭박스 표시)
-							List<ReserveBean> objHRList = objDAO.mtd_hotelList();
-							
-							for(int i=0; i<objHRList.size(); i++){
-								ReserveBean objRB = objHRList.get(i);
-							%>
-								<option value="<%= objRB.gethCode() %>"><%= objRB.gethName() %></option>
-							<%
-							}
-							
+		            		
+		            		<c:forEach var="hList" items="${HList}" varStatus="status">
+		  						<option value="${hList.hCode}">${hList.hName}</option>
+		  					</c:forEach>
+		            
+						</select>
+						<input type="hidden" name="hCode" id="hCode">
+		            </div>
+		            <%							
 							//오늘 날짜 저장.
 							Calendar todayCal = Calendar.getInstance();
 							SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -79,19 +77,15 @@
 							todayCal.add(Calendar.DATE, +1);
 							String tomorrow = sdf.format(todayCal.getTime());
 							
-							%> --%>
-						</select>
-						<input type="hidden" name="hCode" id="hCode">
-		            </div>
-		            
-<%-- 		            <div>
+							%>
+ 		            <div>
 		            	<h5>체크인 / 체크아웃</h5>
 		            	<input type="date" id="resev_start" value="<%= today %>">
 		            	<input type="hidden" id="resev_yy" name="year" value="<%= todayCal.get(Calendar.YEAR) %>">
 		            	<input type="hidden" id="resev_mm" name="month" value="<%= todayCal.get(Calendar.MONTH) %>">
 		            	<b> ~ </b> 
 		            	<input type="date" id="resev_end" value="<%= tomorrow %>">
-		            </div> --%>
+		            </div>
 		            
 		            <div class="people">
 		            	<h5>객실수</h5>

@@ -59,11 +59,126 @@ int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
     <script src="/resources/script/script.js"></script>
     <script src="/resources/script/script_Reserve.js"></script>
     <!-- <script src="/resources/script/script_Reserve2.js"></script> -->
-    <script>
-    
-    
-    
-    </script>
+<script>
+
+	var rListArray = new Array() ;
+	var rListData;
+	var rListjsonData;
+	
+    function resvRoomList(){
+    	console.log("resvRoomList 함수 실행")
+		let url = $(location).attr('href'); 
+		let hCode = url.split("?hCode=").reverse()[0];
+		hCode = hCode.split("&")[0];
+		
+    	pattern="/resvRoomList";
+    	let data={};
+    	data.hCode = hCode;
+    	//console.log(data.hCode);
+    	
+    	sendServer(pattern,data);    	
+    }
+	
+	function sendServer(pattern, data){	       
+        //console.log("sendServer에 들어옴");	   
+        
+        $.ajax({
+            url:pattern,
+            type:"get",
+            data:data,
+            dataType:"JSON",
+            success:function(data){
+
+            	let dataJSON = JSON.stringify(data);
+            	
+		    	if(pattern == "/resvRoomList") {
+			    	
+			    	console.log("success ====> 1. resvRoomList" );
+			    	
+			    	
+			    	for(let i=0; i<data.length; i++){
+			    		//console.log(i);
+				    	$("th.leftTxt").append("<span style='font-size:12px'>"+data[i].rName+"</span><br>");
+				    	
+				    	rListData = new Object() ;
+							
+				    	rListData.rName = data[i].rName;
+				    	rListData.rCode = data[i].rCode;
+				    	rListData.hCode = data[i].hCode;
+							
+				    	
+						rListArray.push(rListData) ;
+			    	}
+			    	rListjsonData = JSON.stringify(rListArray) ;
+		    		
+		    	} else if(pattern == "/resvRoomCnt"){
+			    	
+			    	console.log("success ====> 2. resvRoomCnt" );
+			    	
+			    	//console.log("dataJSON : "+dataJSON);
+			    	
+			    	let resvCnt = parseInt(data.resvCnt);
+			    	let totCnt = parseInt(data.totCnt);
+			    	
+			    	$("b#"+data.resev_start).after(
+			    			"<br><button class='resvBtn' name='rCode' value='"+data.rCode+"'>예약하기("+(totCnt-resvCnt)+" / "+totCnt+")</button>"
+			    			+"<input type='hidden' class='resev_start' name='resev_start' value='"+data.resev_start+"'>"
+			    			+"<input type='hidden' value='"+data.hCode+"'>");
+			    	
+			    }		    	
+		    	
+            },error:function(error){
+                console.log(error);
+                console.log("요청에 실패 했습니다.");
+            }
+        })
+        
+    }
+	
+	function endDate(resev_start){
+		//console.log("예약마감 텍스트 함수 실행");
+		
+		for (var i = 0; i < rListArray.length; i++) {
+			$("b#"+resev_start).after("<br><span class='resvTxt'>예약마감</span>");
+    	}
+		
+	}
+	
+	function resvRoomCnt_data(resev_start){
+		let rCode;
+		
+    	console.log("resvRoomCnt_data 시작 : " + resev_start);
+    	//console.log(rListArray.length);
+    	
+    	for (var i = 0; i < rListArray.length; i++) {
+    		
+    		rCode = rListArray[i].rCode;
+    		hCode = rListArray[i].hCode;
+    	    //console.log(i+" 배열d : "+rCode);
+    	
+    		resvRoomCnt(hCode, rCode, resev_start);
+    	}
+    }
+	
+	function resvRoomCnt(hCode, rCode, resev_start){
+		console.log("resvRoomCnt 함수 실행");
+    	pattern="/resvRoomCnt";
+    	let data={};
+    	data.rCode = rCode;
+    	data.resev_start = resev_start;
+    	data.hCode = hCode;
+    	//console.log(data);
+    	
+    	sendServer(pattern,data);    	
+    }
+	
+	resvRoomList(()=>{
+				endDate(()=>{
+							resvRoomCnt_data();
+				});
+	});
+	
+</script>
 </head>
 <body onload='pageLoading();'>
     <div id="wrap">
@@ -135,7 +250,7 @@ int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
     			</div>
 				
 				<div id="todayBtn">
-					<input type="button" onclick="javascript:location.href='<c:url value='/resvHome' />?hCode=<%= hCode %>'" value="today"/>				
+					<input type="button" onclick="javascript:location.href='<c:url value='/resvHome' />?hCode=<%= hCode %>&amp;year=<%=year%>&amp;month=<%=month%>'" value="today"/>				
 				</div>
     		</div>
     		
@@ -165,15 +280,8 @@ int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
 			<tbody>
 				<tr>
 					<th class='leftTxt'>
-						<br>
-						<c:forEach var="rList" items="${RList}">
-							<c:set var="rName" value="false"/>
-							<span style="font-size:12px" >${rList.rName}</span>
-							<input type="hidden" class="chk_ajax_rCode" value="${rList.rCode }">
-						  	<br>
-						</c:forEach>
-		
-		  		</th>	
+						<br>		
+		  			</th>	
 		 <%
 		//처음 빈공란 표시
 		for(int index = 1; index < start ; index++ ) {
@@ -211,25 +319,20 @@ int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
 			%>
 			<td valign='top' align='left' height='100px' bgcolor='<%=backColor %>' nowrap>
 				
-					<b style="color:<%=color%>"><%=index %></b><br>
 
-					<c:forEach var="rList" items="${RList}">
-						<%
+					<%
 						if(iUseDate < intToday){
-							%>
-						  <span class="resvTxt">예약마감</span><br>
-						  <%
+					%>
+							<b id="<%=resev_start%>" class="past" style="color:<%=color%>"><%=index %></b><br>
+						 	<script>endDate('<%=resev_start%>')</script>
+				  	<%
 						} else {
-							
-						%>
-						
-						<script>resvRoomCnt('<%=resev_start%>')</script>
-						
-						<%	
+					%>
+							<b id="<%=resev_start%>" class="forword" style="color:<%=color%>"><%=index %></b><br>
+							<script>resvRoomCnt_data('<%=resev_start%>')</script>
+					<%	
 						}
-						%>
-					
-					</c:forEach>
+					%>
 					
 					
 			</td>
@@ -242,14 +345,7 @@ int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
 			      out.println("<tr>");
 			  	  // 객실구분 td 공란 만들기
 				  out.println("<th class='leftTxt'><br>");
-			  	  
-			%>
-			<c:forEach var="rList" items="${RList}">
-				<span style="font-size:12px">${rList.rName}</span>
-			  	<br>
-			</c:forEach>
-			<%
-			  	  
+			 			  	  
 				  out.println("</th>");
 			  }
 			  newLine=0;
@@ -270,8 +366,6 @@ int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
     		</div>
     		
     		<!-- 실제 작업 영역 끝 -->
-    		
-    		
     		    	
     	</main>
     	<!--  main#main  -->
@@ -287,10 +381,7 @@ int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
     </div>
     <!-- div#wrap -->
     
-    
-
 </body>
-
-
+    <script>	resvRoomList()</script>	
 
 </html>

@@ -18,12 +18,22 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 
+	
 	@RequestMapping(value = "/")
 	public ModelAndView index(@RequestParam Map<String, Object> map) {
+		System.out.println("/ index 페이지 컨트롤러");
+		// '호텔 리스트' 조회
+		List<Map<String, Object>> HList = this.memberService.selHotelList();
+		
+		
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("HList", HList);
+		
 		mav.setViewName("/index");
+		
 		return mav;
 	}
+	
 	
 	// 로그인 시작
 	@RequestMapping(value = "/login", method = RequestMethod.GET)

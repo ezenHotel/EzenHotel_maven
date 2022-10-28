@@ -23,4 +23,6 @@ public interface MemberService {
 	int inqId(Map<String, Object> map);
 	// 회원가입 끝
 	
+	// '예약하기' 페이지
+	List<Map<String, Object>> selHotelList();
 }

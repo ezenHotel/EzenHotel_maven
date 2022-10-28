@@ -9,7 +9,7 @@
 		]]>
 	</select>
 	
-	<select id="selRoom_List" parameterType="hashMap" resultType="hashMap">
+	<select id="selRoom_List" resultType="pack.spring.reserve.RoomInfoDTO">
 		<![CDATA[
 			select rNum, hCode, rName, rCode, rPeople, rCnt, rPrice from roomInfo where hCode=#{hCode} order by rCode
 		]]>
@@ -22,7 +22,7 @@
 			from reserveInfo where rCode=#{rCode} and resev_start = #{resev_start}
 			order by rCode
 	-->
-	<select id="selResvRoom_Cnt" parameterType="hashMap" resultType="hashMap">
+	<select id="selResvRoom_Cnt" parameterType="String" resultType="String">
 		<![CDATA[
 			select count(num) as resvRCnt
 			from reserveInfo where rCode=#{rCode} and resev_start = #{resev_start}
@@ -33,7 +33,7 @@
 	<!--  선택된 호텔 객실들의 '총' 객실 수 조회 
 			select rName, rCode, rCnt from roomInfo where hCode=#{hCode}
 			order by rCode-->
-	<select id="selTotRoom_Cnt" parameterType="hashMap" resultType="hashMap">
+	<select id="selTotRoom_Cnt" parameterType="String" resultType="String">
 		<![CDATA[
 			select rCnt from roominfo where rCode=#{rCode}
 		]]>

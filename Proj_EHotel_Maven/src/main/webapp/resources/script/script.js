@@ -149,7 +149,7 @@ $(function(){
 		if(selHotelCodeVal == "" || selHotelCodeVal == null){
 			alert("호텔 또는 리조트를 선택해주세요.");
 		}else{
-			$("form#mainReserve").attr("action", "/reserve/reserve.jsp").submit();
+			$("form#mainReserve").attr("action", "/resvHome").submit();
 		}
 	});
 	
