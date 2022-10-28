@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bbs">
+
+	<!-- 회원가입 -->
+	<insert id="insert" parameterType="hashMap"
+		useGeneratedKeys="true" keyProperty="member_id">
+	
+		<![CDATA[ insert into tblBoard ( uid, upw, name, email ) 
+		values ( #{uid}, #{upw}, #{name}, #{email} ) ]]>
+
+	</insert> 
+	
+	<!-- 로그인 -->
+	<select id="select_login" parameterType="hashMap"
+		resultType="hashMap">
+	    <![CDATA[
+	        select * from memberList where uid = #{uid} and upw = #{upw}	
+	    ]]>
+	</select>
+	
+	<!-- 글 작성 -->
+	<insert id="insert_write" parameterType="hashMap"
+		useGeneratedKeys="true" keyProperty="member_id">
+	
+		<![CDATA[ insert into tblBoard ( txtType,name,subject,content,regTM ) 
+		values ( #{txtType}, #{name}, #{subject}, #{content}, now() ) ]]>
+
+	</insert> 
+
+	<!-- 글 목록 -->
+	<select id="select_list" parameterType="hashMap"
+		resultType="hashMap">
+		<![CDATA[
+	        select * from tblBoard order by no desc		
+	    ]]>
+	</select>
+ 
+ 	<!-- 글 상세보기 -->
+	<select id="select_detail" parameterType="hashMap"
+		resultType="hashMap">
+	    <![CDATA[
+	        select no, txtType, uid, name, subject, content,regTM from tblBoard where no = #{no}
+	    ]]>
+	</select>
+	
+	<!-- 작성글 수정 -->
+	<update id="update" parameterType="hashMap" useGeneratedKeys="true" keyProperty="member_id">
+	
+		<![CDATA[ update tblBoard set 
+		txtType = #{txtType},name = #{name},subject = #{subject},
+		content = #{content},updateTM = now() where no = #{no} ) ]]>
+
+	</update> 
+	
+	<!-- 작성글 삭제 -->
+	<delete id="delete" parameterType="int">
+		<![CDATA[
+	        delete from tblBoard where no = #{no}
+	    ]]>
+	
+	</delete>
+	
+	
+
+</mapper>

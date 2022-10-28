@@ -1,0 +1,247 @@
+@charset "UTF-8";
+@import url(/resources/style/style_Reset.css);
+
+header{
+	width: 100%;
+	height: 85px;
+	background-color: #f1e3c4;
+	margin: 2px auto;
+}
+
+div#wrap {
+    width: 1230px;
+    ustify-content: center;
+    padding: 0 65px;
+    margin: 2px auto;
+}
+
+#Menu{
+	width: 265px;
+	height: 225px;
+	border: #e9dab8 solid 1px;
+    background: #f1e3c4;
+    padding: 23px;
+    margin: 65px 0 30px 0;
+    
+}
+
+#Menu>h2{
+
+	font-family: gothamB;
+}
+#Menu>hr{
+	border: 2px solid #101010;
+	margin-top: 15px;
+	margin-bottom: 26px;
+}
+#Menu>span{
+	width: 210px;
+	color:#856f56;
+	line-height: 40px;
+	font-family: gothamB;
+	font-weight: bold;
+}
+
+#Menu>span:hover{
+	background-color: #caac7d;
+	cursor: pointer;
+}
+
+main{
+	margin: 65px 0 30px 0;
+	margin-left: 70px;
+}
+
+main>#contents>h2{
+	color:#856f56;
+	font-family: gothamB;
+}
+
+main>#contents>hr{
+	border: 2px solid #101010;
+	margin: 15px 0;
+}
+
+main>#contents>form>table{
+	width: 730px;
+	border-top: 1px solid #cdcbbe;
+	border-bottom: 1px solid #cdcbbe;
+	border-collapse: collapse;
+}
+
+
+main>#contents>form>table>tbody>tr>th{
+	width: 140px;
+	font-size: 13px;
+	font-family: gothamB;
+	color: #666;
+    background: #faf9f4;
+    padding: 6px 13px;
+    text-align: left;
+    line-height: 22px;
+    border-bottom: #eceae1 solid 1px;
+}
+
+main>#contents>form>table>tbody>tr>td{
+	width: 730px;
+	font-size: 15px;
+	font-family: gothamB;
+	padding: 6px 13px;
+	line-height: 34px;
+    border-bottom: #eceae1 solid 1px;
+}
+main>#contents>form>table>tbody>tr>td>input,select,textarea{
+	border: 1px solid #ccc;
+    padding: 5px 4px 4px;
+    margin: 1px 0;
+}
+#btn{
+    text-align: center;
+}
+
+#btn>button{
+	width: 99px;
+    height: 44px;
+    color:#fff;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    border: none;
+    background-color: #856f56;
+    margin-top: 30px;
+    margin-bottom: 84px;
+}
+
+button#regBtn{
+	width: 99px;
+    height: 44px;
+    color:#fff;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    border: none;
+    background-color: #856f56;
+    margin-top: 30px;
+}
+
+/*////////////// 공지사항 시작 ///////////////// */
+#tabBtn{
+	width: 730px;
+	border-bottom: 1px solid  #eceae1;
+}
+#tabBtn>button {
+	width: 140px;
+    font-size: 14px;
+	font-family: gothamB;
+    font-weight: bold;
+    padding: 9px 20px;
+    border: none;
+    border: #eceae1 solid 1px;
+
+    background: #faf9f4;
+    position: relative;
+    top: 1px;
+}
+#tabBtn>button:first-child {
+    background: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+#tabBtn>button:nth-child(2) {
+    left: -6px;
+}
+
+#tabBtn>button:nth-child(3) {
+    left: -13px;
+}
+#tabBtn>button:nth-child(4) {
+    left: -19px;
+}
+div.multiTB{
+	width: 800px;
+	height: 500px;
+}
+
+div.multiTB>ul>li#faqHr{
+	width: 800px;
+	border-top: 2px solid #eceae1;
+	background: #faf9f4;
+    font-size: 14px;
+	font-family: gothamB;
+}
+div.multiTB>ul>li#faqHr>span{
+	font-family: gothamB;
+}
+
+div.multiTB>ul>#faqHr>#faqHrType{
+	width: 113px;
+	text-align: center;
+	font-family: gothamB;
+}
+div.multiTB>ul>#faqHr>#faqHrType::after{
+	content: "|";
+	color:#666;
+	float: right;
+ 	display: block;
+}
+div.multiTB>ul>#faqHr>#faqHrTitle{
+	flex:1;
+	text-align: center;
+	font-family: gothamB;
+}
+
+div.multiTB>ul>li{
+	width: 800px;
+	line-height: 34px;
+	border-bottom: 1px solid #eceae1;
+}
+
+div.multiTB>ul>li>span.faqType{
+	padding: 10px 44px;
+	font-size: 15px;
+	font-family: gothamB;
+}
+
+div.multiTB>ul>li>span.faqTitle{
+	width: 600px;
+	padding: 10px;
+	line-height: 50px;
+	font-size: 15px;
+	font-family: gothamB;
+	margin-right: 350px;
+}
+div.multiTB>ul>li>ul>li.reply{
+	width: 800px;
+	padding: 10px;
+	background-color: #f9f9f9;
+	font-size: 13px;
+	font-family: gothamB;
+	text-align: center;
+	border-top: #eceae1 solid 1px;
+}
+
+.hide{
+	display:none;
+}
+
+div.multiTB>ul>li>img{
+	height: 15px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+/*////////////// 공지사항 끝 ///////////////// */
+
+/*////////////// 문의목록 시작 ///////////////// */
+#boardList>tbody>tr{
+	text-align: center;
+}
+#boardList>tbody>tr>th{
+	text-align: center !important; 
+}
+
+#boardList>tbody>#readNum:hover{
+	cursor: pointer;
+}
+
+/*////////////// 문의목록 끝 ///////////////// */
