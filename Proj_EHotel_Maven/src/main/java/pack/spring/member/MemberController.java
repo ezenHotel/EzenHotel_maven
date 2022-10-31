@@ -58,7 +58,7 @@ public class MemberController {
 	@RequestMapping("/logout")
 	public ModelAndView logoutProc(@RequestParam Map<String, Object> map, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		session.invalidate();
+		session.removeAttribute("isLogin");
 		mav.setViewName("/index");
 
 		return mav;
