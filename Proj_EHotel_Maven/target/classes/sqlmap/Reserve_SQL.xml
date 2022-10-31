@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="reserve">
+
+	<select id="selHotel_List" parameterType="hashMap" resultType="hashMap">
+		<![CDATA[
+			select hNum, hName, hCode, hType, hAddr from lodgeInfo order by hCode asc
+		]]>
+	</select>
+	
+	<select id="selRoom_List" parameterType="hashMap" resultType="hashMap">
+		<![CDATA[
+			select rNum, hCode, rName, rCode, rPeople, rCnt, rPrice from roomInfo where hCode=#{hCode} order by rCode
+		]]>
+	</select>
+	
+	<!--  선택된 호텔 객실들의 예약 건이 있는지 조회(예약 가능 잔여 객실 추출 시 필요) 
+			select count(num) as resvRCnt, 
+			(case when count(num) = 0 then #{rCode} else rCode end) as rCode,
+			(case when count(num) = 0 then #{resvDate} else resev_start end) as resev_start 
+			from reserveInfo where rCode=#{rCode} and resev_start = #{resev_start}
+			order by rCode
+	-->
+	<select id="selResvRoom_Cnt" parameterType="hashMap" resultType="hashMap">
+		<![CDATA[
+			select count(num) as resvRCnt
+			from reserveInfo where rCode=#{rCode} and resev_start = #{resev_start}
+			order by rCode
+		]]>
+	</select>
+	
+	<!--  선택된 호텔 객실들의 '총' 객실 수 조회 
+			select rName, rCode, rCnt from roomInfo where hCode=#{hCode}
+			order by rCode-->
+	<select id="selTotRoom_Cnt" parameterType="hashMap" resultType="hashMap">
+		<![CDATA[
+			select rCnt from roominfo where rCode=#{rCode}
+		]]>
+	</select>
+
+</mapper>

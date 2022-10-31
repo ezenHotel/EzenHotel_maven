@@ -18,65 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class bbsController {
 
-	// 메인페이지 
-	@RequestMapping(value="/index", method=RequestMethod.GET)
-	public ModelAndView index() {
-		return new ModelAndView("index");
-	}
-
-	// 회원가입 
-	@RequestMapping(value="/join", method=RequestMethod.GET)
-	public ModelAndView join() {
-		return new ModelAndView("bbs/join");
-	}
-
-
 	@Autowired
 	bbsService bbsService;
-
-	@RequestMapping(value="/join", method=RequestMethod.POST)
-	public ModelAndView joinPost(@RequestParam Map<String, Object> map) {
-		ModelAndView mav = new ModelAndView();
-
-		String memberId = this.bbsService.join(map);
-
-		if (memberId == null) {
-			mav.setViewName("redirect:/create");
-		} else {
-			mav.setViewName("redirect:/detail?memberId="+memberId);
-		}
-
-
-		return mav;
-	}
-
-	// 로그인 
-	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public ModelAndView login() {
-		return new ModelAndView("bbs/login");
-	}
-
-	@RequestMapping(value="/login")
-	public ModelAndView login(@RequestParam Map<String, Object> map, HttpSession session ) {
-		Map<String, Object> login = bbsService.login(map);
-		ModelAndView mav = new ModelAndView();
-
-
-		System.out.println(login);
-
-		if(login!=null) {
-			mav.setViewName("/bbs/list");
-			List<Map<String, Object>> list=this.bbsService.list(map);
-			mav.addObject("data",list);
-
-			session.setAttribute("sessionuid", login.get("uid"));
-		}else {
-			mav.setViewName("/bbs/login");
-		}
-
-		return mav;
-	}
-
 
 	// 게시판 글 작성 
 
